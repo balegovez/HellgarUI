@@ -1,0 +1,14 @@
+//Aquí tenemos los Mixins para el framework
+@use 'variables' as v;
+
+@mixin respond-to($breakpoint) {
+  $size: map-get(v.$breakpoints, $breakpoint);
+  
+  @if $size {
+    @media (min-width: $size) {
+      @content;
+    }
+  } @else {
+    @error "El breakpoint '#{$breakpoint}' no existe en HellgarUI.";
+  }
+}
