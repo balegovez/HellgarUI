@@ -1,0 +1,31 @@
+//Aquí están las variables globales para el framewor HellgarUI
+//Inpirado en: Houndoom (Siniestro/Fuego)
+
+//Paleta de colores oficial
+$primary: #E53935;
+$secondary: #212121;
+$accent: #FF9800;
+$light: #F5F5F5;
+$dark: #121212;
+
+//Colores semánticos
+$success: #43A047;
+$danger: #D32F2F;
+$warning: #FBC02D;
+$info: #1E88E5;
+
+//Tipografías bases
+$font-family-base: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+$font-size-base: 16px;
+
+//Breakpoint pero primero orientado a móviles
+$breakpoints: (
+  'xsm': 480px, //tamaño para celular pequeño
+  'sm': 576px, //tamaño para celular grande
+  'md': 768px, //tamaño mediano para tablets
+  'lg': 992px, //tamaño para computadora escritorio normal
+  'xl': 1200px //tamaño pantallas grandes (Gracias)
+);
+
+//Espaciado base
+$spacer: 1rem;
