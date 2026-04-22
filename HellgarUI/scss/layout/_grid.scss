@@ -1,0 +1,116 @@
+
+@use '../variables' as v;
+@use '../mixins' as m;
+
+//     Contenedores       //
+.container {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: calc(v.$grid-gutter / 2);
+
+    @each $breakpoint, $max-width in v.$container-max-widths {
+        @include m.media-breakpoint-up($breakpoint) {
+            max-width: $max-width;
+        }
+    }
+}
+
+.container-fluid {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: calc(v.$grid-gutter / 2);
+}
+
+//    Filas       //
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    margin-inline: calc(v.$grid-gutter / -2);
+
+    //Modificador de gap
+    &--no-gutter {
+        margin-inline: 0;
+        > [class*="col-"] {
+            padding-inline: 0;
+        }
+    }
+}
+
+//    Columnas(aplicadas a first mobile)     //
+
+//columna base ocupada todo el ancho del telefono
+[class*="col-"] {
+    padding-inline: calc(v.$grid-gutter / 2);
+    width: 100%;
+}
+
+//col sin numero = ocupa el espacio disponible automaticamente
+.col {
+    flex: 0 0 auto;
+    width: auto;
+}
+
+//genera .col-1, .col-2, ... .col-12 (en base de telefono) con su respectivo ancho
+@for $i from 1 through v.$grid-columns {
+    .col-#{$i} {
+        flex: 0 0 auto;
+        width: percentage(calc($i / v.$grid-columns));
+    }
+}
+
+//genera .col-sm-1, .col-md-6, .col-lg-4
+@each $breakpoint, $value in v.$breakpoints {
+
+    @include m.media-breakpoint-up($breakpoint){
+        .col-#{$breakpoint} {
+            flex: 1 0 0%;
+        }
+        
+        .col-#{$breakpoint}-auto {
+            flex: 0 0 auto;
+            width: auto ;
+        }
+
+        @for $i from 1 through v.$grid-columns {
+            .col-#{$breakpoint}-#{$i} {
+                flex: 0 0 auto;
+                width: percentage(calc($i / v.$grid-columns));
+            }
+        }
+
+        @for $i from 0 through (v.$grid-columns - 1) {
+        .offset-#{$breakpoint}-#{$i} {
+            margin-left: if($i== 0,0, percentage(calc($i / v.$grid-columns)));
+            }
+        }
+
+        //orden responsivo 
+        .order-#{$breakpoint}-first {
+            order: -1;
+        }
+        .order-#{$breakpoint}-last {
+            order: v.$grid-columns + 1;
+        }
+
+        @for $i from 0 through v.$grid-columns {
+            .order-#{$breakpoint}-#{$i} {
+                order: $i;
+            }
+        }
+        
+    }
+}
+
+.order-first { order: -1; }
+.order-last  { order: v.$grid-columns + 1; }
+
+@for $i from 0 through (v.$grid-columns - 1) {
+  .offset-#{$i} { 
+      margin-left: if($i == 0, 0, percentage(calc($i / v.$grid-columns))); 
+  }
+}
+
+@for $i from 0 through v.$grid-columns {
+  .order-#{$i} { order: $i; }
+}
+
