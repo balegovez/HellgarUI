@@ -1,0 +1,32 @@
+//Bucle para genera tamaños de fuente proporcionales (fs-1 es el más grande)
+@for $i from 1 through 6 {
+    .fs-#{$i} {
+        //Escala: fs-1 será aprox 2.5rem y bajará según el número
+        font-size: calc(#{$font-size-base} * (3.5 - (#{$i} * 0.5))) !important;
+    }
+}
+
+//Clases de utilidad para el grosor y alineación del texto
+.fw-bold {
+    font-weight: 700 !important;
+}
+
+.fw-normal {
+    font-weight: 400 !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.text-justify {
+    text-align: justify !important;
+}
