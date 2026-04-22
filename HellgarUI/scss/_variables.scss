@@ -18,15 +18,31 @@ $info: #1E88E5;
 $font-family-base: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 $font-size-base: 16px;
 
+//Espaciado base
+$spacer: 1rem;
+//
+
 //Breakpoint pero primero orientado a móviles
 $breakpoints: (
   'xsm': 480px, //tamaño para celular pequeño
   'sm': 576px, //tamaño para celular grande
   'md': 768px, //tamaño mediano para tablets
   'lg': 992px, //tamaño para computadora escritorio normal
-  'xl': 1200px //tamaño pantallas grandes (Gracias)
-);
+  'xl': 1200px, //tamaño pantallas grandes (Gracias)
+  'xxl': 1400px //tamaño para pantallas extra grandes
+  );
 
-//Espaciado base
-$spacer: 1rem;
-//
+//     Variables para el diseeño del grid         //
+
+//Sistema de grid basado en 12 columnas con un gutter de 1.5rem
+$grid-columns: 12;
+$grid-gutter: 1.5rem;
+
+//     Breakpoints de los puntos de quiebre de los contenedores     //
+$container-max-widths: (
+  'sm':  540px,
+  'md':  720px,
+  'lg':  960px,
+  'xl':  1140px,
+  'xxl': 1320px
+) !default;
