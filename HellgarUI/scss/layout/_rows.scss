@@ -1,0 +1,20 @@
+@use '../variables' as v;
+
+// filas 
+//contenedor flexible para organizar el contenido en filas
+//poniendo el padding de las columnas con margenes negativos para que las columnas de los extremos queden alineadas al contenedor
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-inline: calc(v.$grid-gutter / -2);
+
+    //eliminar el gutter entre filas
+    &.no-gutters {
+        margin-inline: 0;
+    
+        >[class*="col-"] {
+            padding-inline: 0;
+        }
+    }
+}

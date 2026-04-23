@@ -1,0 +1,24 @@
+@use '../variables' as v;
+@use '../mixins' as m;
+
+//definir los anchos maximos del layout segun el breakpoint
+
+.container {
+
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: calc(v.$grid-gutter);
+
+    //itera el mapa de ancohos maximos y aplica maxwidth segun el breakpoint
+    @each $breakpoints, $max-width in v.$container-max-widths {
+        @include m.media-breakpoint-up($breakpoints) {
+            max-width: $max-width;
+        }
+    }
+}
+
+.container-fluid {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: calc(v.$grid-gutter / 2);
+}
