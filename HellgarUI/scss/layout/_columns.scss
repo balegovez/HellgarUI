@@ -1,0 +1,87 @@
+@use '../variables' as v;
+@use '../mixins' as m;
+
+// Columnas aplicadas a first mobile //
+//sistema de 12 columnas como la documentacion de recomienda
+
+//toda columna tiene padding horizontal y ocupa el 100% en telefonos
+[class*="col-"] {
+    width: 100%;
+    padding-inline: calc(v.$grid-gutter / 2);
+}
+
+// .col sin numero ocupa el mismo espacio disponmible que las otras columnas
+.col {
+    flex: 0 0 auto;
+    width: auto;
+}
+
+// .col1 ... .col12 ocupan el espacio segun el numero de columnas que ocupen
+@for $i from 1 through v.$grid-columns {
+    .col#{$i} {
+        flex: 0 0 auto;
+        width: percentage(calc($i / v.$grid-columns));
+    }
+}
+
+//variantes responsivas:
+@each $breakpoints, $value in v.$breakpoints {
+
+    @include m.media-breakpoint-up(breakpoints) {
+        // -col-sm, .col-md fluida toma el espacio disponible
+        .col#{$breakpoints} {
+            flex: 1 0 0%;
+        }
+    
+        // .col-sm-auto, .col-md-auto → ancho según contenido
+        .col-#{$breakpoint}-auto {
+            flex: 0 0 auto;
+            width: auto;
+        }
+        
+        //columnas numeradas por breakpoint
+        @for $i from 1 through v.$grid-columns {
+            .col-#{$breakpoint}-#{$i} {
+                flex: 0 0 auto;
+                width: percentage(calc($i / v.$grid-columns));
+            }
+        }
+
+        //offsets resposivos empujan la columna hacia la derecha
+        @for $i from 0 through v.$grid-columns {
+            .offset-#{$breakpoint}-#{$i} {
+                margin-left: percentage(calc($i / v.$grid-columns));
+            }
+        }
+
+        //orden resposivo, reorganiza el orden de las columnas
+        .order-#{$breakpoint}-first {
+            order: -1;
+        }
+
+        .order-#{$breakpoint}-last {
+            order: v.$grid-columns + 1;
+        }
+
+        @for $i from 0 through v.$grid-columns {
+            .order-#{$breakpoint}-#{$i} {
+                order: $i;
+            }
+    
+        }
+
+    }
+}
+
+//utilidades base sin breakpoint para order y offset
+@for $i from 0 through v.$grid-columns {
+    .offset-#{$breakpoint}-#{$i}{
+        margin-left: if($i == 0, 0, percentage(calc($i / v.$grid-columns)));
+    }
+}
+
+@for $i from 0 through v.$grid-columns {
+    .order-#{$i} {
+        order: $i;
+    }
+}
