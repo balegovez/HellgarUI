@@ -1,0 +1,52 @@
+@use '../variables' as v;
+
+.form-group {
+    margin-bottom: v.$spacer;
+}
+
+.form-label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-family: v.$font-family-base;
+    font-size: v.$font-size-base;
+    color: v.$dark;
+    background-color: #fff;
+    border: 1px solid rgba(v.$dark, 0.2);
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+    &:focus {
+        border-color: v.$primary;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(v.$primary, 0.25);
+    }
+
+    // Estados de Validación
+    &.is-valid {
+        border-color: v.$success;
+        &:focus { box-shadow: 0 0 0 0.2rem rgba(v.$success, 0.25); }
+    }
+
+    &.is-invalid {
+        border-color: v.$danger;
+        &:focus { box-shadow: 0 0 0 0.2rem rgba(v.$danger, 0.25); }
+    }
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    
+    input[type="checkbox"] {
+        accent-color: v.$primary; // Estilo moderno con tu color principal
+    }
+}

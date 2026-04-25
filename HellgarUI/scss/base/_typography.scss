@@ -1,12 +1,14 @@
-//Bucle para genera tamaños de fuente proporcionales (fs-1 es el más grande)
+@use '../variables' as v; // 1. Importamos las variables con el alias 'v'
+
+// Bucle para generar tamaños de fuente proporcionales
 @for $i from 1 through 6 {
     .fs-#{$i} {
-        //Escala: fs-1 será aprox 2.5rem y bajará según el número
-        font-size: calc(#{$font-size-base} * (3.5 - (#{$i} * 0.5))) !important;
+        // 2. Usamos v.$font-size-base para que SASS encuentre la variable
+        font-size: calc(#{v.$font-size-base} * (3.5 - (#{$i} * 0.5))) !important;
     }
 }
 
-//Clases de utilidad para el grosor y alineación del texto
+// Clases de utilidad para el grosor y alineación del texto
 .fw-bold {
     font-weight: 700 !important;
 }
@@ -29,4 +31,8 @@
 
 .text-justify {
     text-align: justify !important;
+}
+
+.text-uppercase {
+    text-transform: uppercase !important;
 }

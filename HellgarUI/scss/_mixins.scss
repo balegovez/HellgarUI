@@ -1,8 +1,10 @@
-//Aquí tenemos los Mixins para el framework
+// _mixins.scss
+@use 'sass:map';
 @use 'variables' as v;
 
 @mixin media-breakpoint-up($breakpoint) {
-  $size: map-get(v.$breakpoints, $breakpoint);
+  // Usamos map.get para cumplir con el estándar moderno de SASS
+  $size: map.get(v.$breakpoints, $breakpoint);
   
   @if $size {
     @media (min-width: $size) {

@@ -1,0 +1,23 @@
+@use 'sass:map';
+
+// Puntos de corte estándar
+$breakpoints: (
+    "xs": 0,
+    "sm": 576px,
+    "md": 768px,
+    "lg": 992px,
+    "xl": 1200px
+);
+
+// El Mixin "Mágico"
+@mixin respond-to($breakpoint) {
+    @if map.has-key($breakpoints, $breakpoint) {
+        @media (min-width: map.get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    }
+
+    @else {
+        @error "La llave #{$breakpoint} no existe en el mapa de breakpoints.";
+    }
+}

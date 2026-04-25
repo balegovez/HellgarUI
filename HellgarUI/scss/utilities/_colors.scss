@@ -1,31 +1,15 @@
-//Vincule las variables de Houndoom al mapa de colores del framework
-$colores-hellgar: (
-    "primario": $primary,
-    //Rojo fuego
-    "secundario": $secondary,
-    //Gris oscuro
-    "acento": $accent,
-    //Naranja
-    "claro": $light,
-    //Gris muy claro
-    "oscuro": $dark,
-    //Negro
-    "exito": $success,
-    //Verde
-    "error": $danger,
-    //Rojo alerta
-    "aviso": $warning,
-    //Amarillo
-    "info": $info // Azul
+@use '../variables' as v;
+
+$colors: (
+    "primary": v.$primary, 
+    "secondary": v.$secondary,
+    "success": v.$success,
+    "danger": v.$danger,
+    "dark": v.$dark,
+    "light": v.$light
 );
 
-//Bucle para gnerar clases como .text-primario o .bg-oscuro
-@each $nombre, $valor in $colores-hellgar {
-    .text-#{$nombre} {
-        color: $valor !important;
-    }
-
-    .bg-#{$nombre} {
-        background-color: $valor !important;
-    }
+@each $name, $color in $colors {
+    .text-#{$name} { color: $color !important; }
+    .bg-#{$name} { background-color: $color !important; }
 }

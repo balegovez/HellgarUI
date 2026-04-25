@@ -1,0 +1,43 @@
+// ======================================================
+// 1. CONFIGURACIÓN (El Cerebro)
+// Primero cargamos variables y mixins para que estén 
+// disponibles en todos los archivos de abajo.
+// ======================================================
+@use 'variables' as v;
+@use 'mixins' as m;
+
+// ======================================================
+// 2. BASE (Los Cimientos)
+// Limpiamos estilos y establecemos la tipografía global.
+// ======================================================
+@use 'base/reset';
+@use 'base/typography';
+
+// ======================================================
+// 3. LAYOUT (La Estructura)
+// Definimos el esqueleto del sitio.
+// ======================================================
+@use 'layout/breakpoints';
+@use 'layout/grid';
+@use 'layout/columns';
+@use 'layout/navbar';
+
+// ======================================================
+// 4. COMPONENTES (Los Objetos)
+// Elementos específicos de la interfaz.
+// ======================================================
+@use 'components/alerts';
+@use 'components/badges';
+@use 'components/buttons';
+@use 'components/cards';
+@use 'components/forms';
+@use 'components/tables';
+
+// ======================================================
+// 5. UTILIDADES (Los Ajustes Finales)
+// Siempre van al final para que puedan forzar cambios 
+// (usando !important si es necesario) sobre los componentes.
+// ======================================================
+@use 'utilities/colors';
+@use 'utilities/display'; // <--- Igual que el anterior
+@use 'utilities/spacing'; // <--- Igual que el anterior

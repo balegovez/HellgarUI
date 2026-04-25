@@ -1,0 +1,20 @@
+@use 'sass:color';
+@use '../variables' as v;
+
+.alert {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+
+    &-success { 
+        background-color: color.adjust(v.$success, $lightness: 40%); 
+        color: color.adjust(v.$success, $lightness: -20%); 
+        border-color: color.adjust(v.$success, $lightness: 30%); 
+    }
+    &-danger { 
+        background-color: color.adjust(v.$danger, $lightness: 40%); 
+        color: color.adjust(v.$danger, $lightness: -20%); 
+        border-color: color.adjust(v.$danger, $lightness: 25%); 
+    }
+}

@@ -1,82 +1,77 @@
+@use 'sass:math';
 @use '../variables' as v;
 @use '../mixins' as m;
 
-// Columnas aplicadas a first mobile //
-//sistema de 12 columnas como la documentacion de recomienda
-
-//toda columna tiene padding horizontal y ocupa el 100% en telefonos
-[class*="col-"] {
-    width: 100%;
-    padding-inline: calc(v.$grid-gutter / 2);
+// ======================================================
+// 1. COLUMNAS BASE (Sin breakpoints)
+// ======================================================
+.col {
+    flex: 1 0 0%;
 }
 
-// .col sin numero ocupa el mismo espacio disponmible que las otras columnas
-.col {
+.col-auto {
     flex: 0 0 auto;
     width: auto;
 }
 
-// .col1 ... .col12 ocupan el espacio segun el numero de columnas que ocupen
 @for $i from 1 through v.$grid-columns {
-    .col#{$i} {
+    .col-#{$i} {
         flex: 0 0 auto;
-        width: percentage(calc($i / v.$grid-columns));
+        width: math.percentage(math.div($i, v.$grid-columns));
     }
 }
 
-//variantes responsivas:
-@each $breakpoints, $value in v.$breakpoints {
-
-    @include m.media-breakpoint-up(breakpoints) {
-        // -col-sm, .col-md fluida toma el espacio disponible
-        .col#{$breakpoints} {
+// ======================================================
+// 2. VARIANTES RESPONSIVAS (Loops de Breakpoints)
+// ======================================================
+@each $bp, $value in v.$breakpoints {
+    
+    @include m.media-breakpoint-up($bp) {
+        
+        .col-#{$bp} {
             flex: 1 0 0%;
         }
     
-        // .col-sm-auto, .col-md-auto → ancho según contenido
-        .col-#{$breakpoint}-auto {
+        .col-#{$bp}-auto {
             flex: 0 0 auto;
             width: auto;
         }
         
-        //columnas numeradas por breakpoint
         @for $i from 1 through v.$grid-columns {
-            .col-#{$breakpoint}-#{$i} {
+            .col-#{$bp}-#{$i} {
                 flex: 0 0 auto;
-                width: percentage(calc($i / v.$grid-columns));
+                width: math.percentage(math.div($i, v.$grid-columns));
             }
         }
 
-        //offsets resposivos empujan la columna hacia la derecha
         @for $i from 0 through v.$grid-columns {
-            .offset-#{$breakpoint}-#{$i} {
-                margin-left: percentage(calc($i / v.$grid-columns));
+            .offset-#{$bp}-#{$i} {
+                // Sintaxis ultra-moderna para evitar el warning de 'if'
+                $offset-val: math.percentage(math.div($i, v.$grid-columns));
+                margin-left: if($i == 0, 0, $offset-val);
             }
         }
 
-        //orden resposivo, reorganiza el orden de las columnas
-        .order-#{$breakpoint}-first {
-            order: -1;
-        }
-
-        .order-#{$breakpoint}-last {
-            order: v.$grid-columns + 1;
-        }
+        // --- LÓGICA DE ORDER (NUMÉRICO, FIRST, LAST) ---
+        .order-#{$bp}-first { order: -1; }
+        .order-#{$bp}-last { order: v.$grid-columns + 1; }
 
         @for $i from 0 through v.$grid-columns {
-            .order-#{$breakpoint}-#{$i} {
+            .order-#{$bp}-#{$i} {
                 order: $i;
             }
-    
         }
-
     }
 }
 
-//utilidades base sin breakpoint para order y offset
+// ======================================================
+// 3. UTILIDADES BASE Y OFFSETS FINALES (Sin Warning)
+// ======================================================
 @for $i from 0 through v.$grid-columns {
-    .offset-#{$breakpoint}-#{$i}{
-        margin-left: if($i == 0, 0, percentage(calc($i / v.$grid-columns)));
+    .offset-#{$i} {
+        // Aquí estaba el dolor de cabeza. Separamos el cálculo para que SASS no llore.
+        $val: math.percentage(math.div($i, v.$grid-columns));
+        margin-left: if($i == 0, 0, $val);
     }
 }
 
@@ -85,3 +80,7 @@
         order: $i;
     }
 }
+
+.order-first { order: -1; }
+.order-last { order: v.$grid-columns + 1; }
+
