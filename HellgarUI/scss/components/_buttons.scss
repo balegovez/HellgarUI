@@ -1,0 +1,32 @@
+@use 'sass:color';
+@use '../variables' as v;
+
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+
+    &-primary { 
+        background-color: v.$primary; 
+        color: white; 
+        &:hover { background-color: color.adjust(v.$primary, $lightness: -10%); } 
+    }
+    &-secondary { 
+        background-color: v.$secondary; 
+        color: white; 
+        &:hover { background-color: color.adjust(v.$secondary, $lightness: 15%); } 
+    }
+    &-success { 
+        background-color: v.$success; 
+        color: white; 
+        &:hover { background-color: color.adjust(v.$success, $lightness: -10%); } 
+    }
+    &-danger { 
+        background-color: v.$danger; 
+        color: white; 
+        &:hover { background-color: color.adjust(v.$danger, $lightness: -10%); } 
+    }
+}

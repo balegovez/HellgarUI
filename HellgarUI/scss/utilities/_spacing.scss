@@ -1,59 +1,44 @@
-//Escala de espaciado basada en la variable de 1rem
-$escalas: (
+@use '../variables' as v; // <--- ESTA ES LA LLAVE QUE FALTA
+
+$spacers: (
     "0": 0,
-    "1": ($spacer * 0.25),
-    //4px
-    "2": ($spacer * 0.5),
-    //8px
-    "3": $spacer,
-    //16px
-    "4": ($spacer * 1.5),
-    //24px
-    "5": ($spacer * 3) //48px
+    "1": (v.$spacer * 0.25),
+    "2": (v.$spacer * 0.5),
+    "3": v.$spacer,
+    "4": (v.$spacer * 1.5),
+    "5": (v.$spacer * 3)
 );
 
-$lados: (
-    "t": "top",
-    "b": "bottom",
-    "l": "left",
-    "r": "right",
-    "x": ("left", "right"),
-    "y": ("top", "bottom")
-);
-
-//Genera clases tipo .mt-1 cumpliendo con lo q se pide en el pdf
-@each $num, $medida in $escalas {
-    .m-#{$num} {
-        margin: $medida !important;
-    }
-
-    .p-#{$num} {
-        padding: $medida !important;
-    }
-
-    @each $abreviatura, $direccion in $lados {
-        .m#{$abreviatura}-#{$num} {
-            @if type-of($direccion)==list {
-                @each $d in $direccion {
-                    margin-#{$d}: $medida !important;
-                }
-            }
-
-            @else {
-                margin-#{$direccion}: $medida !important;
-            }
+@each $prop, $abbrev in (margin: m, padding: p) {
+    @each $size, $length in $spacers {
+        .#{$abbrev}-#{$size} {
+            #{$prop}: $length !important;
         }
 
-        .p#{$abreviatura}-#{$num} {
-            @if type-of($direccion)==list {
-                @each $d in $direccion {
-                    padding-#{$d}: $medida !important;
-                }
-            }
+        .#{$abbrev}t-#{$size} {
+            #{$prop}-top: $length !important;
+        }
 
-            @else {
-                padding-#{$direccion}: $medida !important;
-            }
+        .#{$abbrev}b-#{$size} {
+            #{$prop}-bottom: $length !important;
+        }
+
+        .#{$abbrev}s-#{$size} {
+            #{$prop}-left: $length !important;
+        }
+
+        .#{$abbrev}e-#{$size} {
+            #{$prop}-right: $length !important;
+        }
+
+        .#{$abbrev}x-#{$size} {
+            #{$prop}-left: $length !important;
+            #{$prop}-right: $length !important;
+        }
+
+        .#{$abbrev}y-#{$size} {
+            #{$prop}-top: $length !important;
+            #{$prop}-bottom: $length !important;
         }
     }
 }
