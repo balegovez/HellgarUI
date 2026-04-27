@@ -1,20 +1,40 @@
 @use 'sass:color';
 @use '../variables' as v;
 
+// Estilos base de la alerta
 .alert {
-    padding: 1rem;
+    position: relative;
+    padding: 1rem 1.25rem;
     margin-bottom: 1rem;
     border: 1px solid transparent;
     border-radius: 0.25rem;
+    font-family: v.$font-family-base;
 
+    // 1. ÉXITO (Success)
     &-success { 
-        background-color: color.adjust(v.$success, $lightness: 40%); 
-        color: color.adjust(v.$success, $lightness: -20%); 
+        background-color: color.adjust(v.$success, $lightness: 40%, $alpha: -0.2); 
+        color: color.adjust(v.$success, $lightness: -25%); 
         border-color: color.adjust(v.$success, $lightness: 30%); 
     }
+
+    // 2. PELIGRO (Danger)
     &-danger { 
-        background-color: color.adjust(v.$danger, $lightness: 40%); 
-        color: color.adjust(v.$danger, $lightness: -20%); 
+        background-color: color.adjust(v.$danger, $lightness: 40%, $alpha: -0.2); 
+        color: color.adjust(v.$danger, $lightness: -25%); 
         border-color: color.adjust(v.$danger, $lightness: 25%); 
+    }
+
+    // 3. ADVERTENCIA (Warning)
+    &-warning { 
+        background-color: color.adjust(v.$warning, $lightness: 35%, $alpha: -0.2); 
+        color: color.adjust(v.$warning, $lightness: -40%); 
+        border-color: color.adjust(v.$warning, $lightness: 25%); 
+    }
+
+    // 4. INFORMACIÓN (Info)
+    &-info { 
+        background-color: color.adjust(v.$info, $lightness: 35%, $alpha: -0.2); 
+        color: color.adjust(v.$info, $lightness: -30%); 
+        border-color: color.adjust(v.$info, $lightness: 30%); 
     }
 }
