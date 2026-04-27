@@ -1214,7 +1214,7 @@ a {
   margin: 0;
 }
 .navbar-link {
-  color: #fff;
+  color: #F5F5F5;
   text-decoration: none;
   transition: color 0.3s;
 }
@@ -1259,7 +1259,7 @@ a {
   font-size: 0.75em;
   font-weight: 700;
   line-height: 1;
-  color: #fff;
+  color: white;
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
