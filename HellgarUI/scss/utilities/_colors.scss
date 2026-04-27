@@ -1,15 +1,47 @@
 @use '../variables' as v;
 
-$colors: (
-    "primary": v.$primary, 
-    "secondary": v.$secondary,
-    "success": v.$success,
-    "danger": v.$danger,
-    "dark": v.$dark,
-    "light": v.$light
-);
+//generar la clases de colores y background-colors
 
-@each $name, $color in $colors {
-    .text-#{$name} { color: $color !important; }
-    .bg-#{$name} { background-color: $color !important; }
+//mapa de colores a generar
+$theme-colors: (
+  'primary': v.$primary,
+  'secondary': v.$secondary,
+  'accent': v.$accent,
+  'light': v.$light,
+  'dark': v.$dark,
+  'success': v.$success,
+  'danger': v.$danger,
+  'warning': v.$warning,
+  'info': v.$info
+) !default;
+
+//generar el mapa de colores oscuros para aplicar en el texto texto blanco por defecto
+$dark-backgrounds: ('primary', 'secondary', 'success', 'dark', 'danger', 'info');
+
+@each $name, $color in $theme-colors {
+
+    .text-#{$name} {
+        color: $color;
+    }
+
+    .bg-#{$name} {
+        background-color: $color;
+
+        //auto-contraste: si el fondo es oscuro, texto claro automático.
+        //el usuario puede sobreescribir con una clase .text-* explícita.
+        @if index($dark-backgrounds, $name) {
+            color: v.$light;
+        } @else {
+            color: v.$dark;
+        }
+    }
 }
+
+//    Utilidades neutras (blanco y negro puros, no son parte del tema)
+.text-white { color: #FFFFFF; }
+.text-black { color: #000000; }
+.bg-white   { background-color: #FFFFFF; }
+.bg-black   { background-color: #000000; color: #FFFFFF; }
+
+//    Modificador: texto transparente (útil para overlays)
+.text-muted { color: rgba(0, 0, 0, 0.6); }

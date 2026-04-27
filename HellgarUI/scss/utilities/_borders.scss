@@ -1,0 +1,111 @@
+@use '../variables' as v;
+
+//control de radio, bordes y elevación visual
+$border-radii: (
+    'sm':      0.25rem,
+    '':        0.5rem,   // .rounded (valor por defecto)
+    'md':      0.5rem,
+    'lg':      1rem,
+    'xl':      1.5rem,
+    'pill':    50rem,    // valor alto para formar cápsulas
+    'circle':  50%
+) !default;
+
+//clases de radio:
+//.rounded
+// .rounded-sm
+// .rounded-lg
+// .rounded-pill
+// .rounded-circle
+@each $key, $value in $border-radii{
+     @if $key == '' {
+        .rounded {
+            border-radius: $value;
+        }
+    } @else {
+        .rounded-#{$key} {
+            border-radius: $value;
+        }
+    }
+}
+
+//radioos por esquinas especificas
+.rounded-top{
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+.rounded-bottom{
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+.rounded-start{
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+}
+.rounded-end{
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+
+//reset de radios
+.rounded-0 {
+    border-radius: 0;
+}
+
+//utilidades de borde
+.border {
+    border: 1px solid rgba(0,0,0,0.15); 
+}
+.border-0 {
+    border: 0;
+}
+.border-top {
+    border-top: 1px solid rgba(0,0,0,0.15);
+}
+.border-bottom {
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+.border-start {
+    border-inline-start: 1px solid rgba(0,0,0,0.15);
+}
+.border-end {
+    border-inline-end: 1px solid rgba(0,0,0,0.15);
+}
+
+//bordes de colores
+$border-colors: (
+    'primary': v.$primary,
+    'secondary': v.$secondary,
+    'success': v.$success,
+    'danger': v.$danger,
+    'warning': v.$warning,
+    'info': v.$info,
+    'light': v.$light,
+    'dark': v.$dark
+) !default;
+
+@each $name, $color in $border-colors {
+    .border-#{$name} {
+        border-color: $color;
+    }
+}
+
+//      Sombras         ///
+$shadows:(
+    'none': 0 0.125rem 0.25rem rgba(0,0,0,0.075),
+    'sm': 0 0.5rem 1rem rgba(0, 0, 0, 0.15),
+    'md': 0 1rem 3rem rgba(0, 0, 0, 0.175),
+    'lg': 0 1.5rem 5rem rgba(0, 0, 0, 0.25)
+) !default;
+
+@each $key, $value in $shadows{
+    @if $key == ''{
+        .shadow {
+            box-shadow: $value;
+        }
+    } @else {
+        .shadow-#{$key} {
+            box-shadow: $value;
+        }
+    }
+}

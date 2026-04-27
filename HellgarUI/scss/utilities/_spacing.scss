@@ -1,44 +1,43 @@
-@use '../variables' as v; // <--- ESTA ES LA LLAVE QUE FALTA
+@use '../variables' as v;
+@use '../mixins' as m;
 
+//utilidades de espaciado 
+
+//determinando la escala de espaciado 
 $spacers: (
-    "0": 0,
-    "1": (v.$spacer * 0.25),
-    "2": (v.$spacer * 0.5),
-    "3": v.$spacer,
-    "4": (v.$spacer * 1.5),
-    "5": (v.$spacer * 3)
-);
+  0: 0,
+  1: v.$spacer * .25, //0.25rem
+  2: v.$spacer * .5,  //0.5rem
+  3: v.$spacer,       //1rem
+  4: v.$spacer * 1.5, //1.5rem
+  5: v.$spacer * 3    //3rem
+) !default;
 
-@each $prop, $abbrev in (margin: m, padding: p) {
-    @each $size, $length in $spacers {
-        .#{$abbrev}-#{$size} {
-            #{$prop}: $length !important;
-        }
+//determinar los prefijos para margin y padding
+$properties: (
+  'm': 'margin',
+  'p': 'padding'
+) !default;
 
-        .#{$abbrev}t-#{$size} {
-            #{$prop}-top: $length !important;
-        }
+//determinar sufijos de direccion 
+$sides: (
+  't': 'top',
+  'b': 'bottom',
+  's': 'start', //left en LTR, right en RTL
+  'e': 'end'    //right en LTR, left en RTL
+) !default;
 
-        .#{$abbrev}b-#{$size} {
-            #{$prop}-bottom: $length !important;
-        }
+//generando la base first mobile 
+@include m.generate-spacing-utilities($spacers, $properties, $sides);
 
-        .#{$abbrev}s-#{$size} {
-            #{$prop}-left: $length !important;
-        }
-
-        .#{$abbrev}e-#{$size} {
-            #{$prop}-right: $length !important;
-        }
-
-        .#{$abbrev}x-#{$size} {
-            #{$prop}-left: $length !important;
-            #{$prop}-right: $length !important;
-        }
-
-        .#{$abbrev}y-#{$size} {
-            #{$prop}-top: $length !important;
-            #{$prop}-bottom: $length !important;
-        }
-    }
+//haciendo la generación de clases responsivas para cada breakpoint definido en variables
+@each $bp, $value in v.$breakpoints {
+  @include m.media-breakpoint-up($bp) {
+      @include m.generate-spacing-utilities(
+          $spacers,
+          $properties,
+          $sides,
+          '-#{$bp}'
+      );
+  }
 }

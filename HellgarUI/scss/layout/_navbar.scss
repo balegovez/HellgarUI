@@ -1,4 +1,3 @@
-@use '../layout/breakpoints' as b;
 @use '../variables' as v;
 
 .navbar {
@@ -36,7 +35,7 @@
     }
 
     // APLICANDO EL BREAKPOINT (Tablet y Desktop)
-    @include b.respond-to('md') {
+    @include v.breakpoint('md') {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
