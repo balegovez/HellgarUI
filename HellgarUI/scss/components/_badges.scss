@@ -1,0 +1,20 @@
+@use '../variables' as v;
+
+.badge {
+    display: inline-block;
+    padding: 0.35em 0.65em;
+    font-size: 0.75em;
+    font-weight: 700;
+    line-height: 1;
+    color: white;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+
+    &-primary { background-color: v.$primary; }
+    &-secondary { background-color: v.$secondary; }
+    &-accent { background-color: v.$accent; color: v.$dark; }
+    
+    &-pill { border-radius: 50rem; padding-right: 0.8em; padding-left: 0.8em; }
+}

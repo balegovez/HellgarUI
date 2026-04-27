@@ -1,0 +1,22 @@
+@use '../variables' as v;
+@use '../mixins' as m;
+
+$display-values: (none, inline, inline-block, block, flex, inline-flex, grid);
+
+// 1) Base mobile-first
+@each $value in $display-values {
+    .d-#{$value} {
+        display: $value;
+    }
+}
+
+// 2) Responsivas: .d-md-flex, .d-lg-none, etc.
+@each $bp, $value in v.$breakpoints {
+    @include m.media-breakpoint-up($bp) {
+        @each $display in $display-values {
+            .d-#{$bp}-#{$display} {
+                display: $display;
+            }
+        }
+    }
+}

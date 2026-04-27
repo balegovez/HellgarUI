@@ -1,59 +1,43 @@
-//Escala de espaciado basada en la variable de 1rem
-$escalas: (
-    "0": 0,
-    "1": ($spacer * 0.25),
-    //4px
-    "2": ($spacer * 0.5),
-    //8px
-    "3": $spacer,
-    //16px
-    "4": ($spacer * 1.5),
-    //24px
-    "5": ($spacer * 3) //48px
-);
+@use '../variables' as v;
+@use '../mixins' as m;
 
-$lados: (
-    "t": "top",
-    "b": "bottom",
-    "l": "left",
-    "r": "right",
-    "x": ("left", "right"),
-    "y": ("top", "bottom")
-);
+//utilidades de espaciado 
 
-//Genera clases tipo .mt-1 cumpliendo con lo q se pide en el pdf
-@each $num, $medida in $escalas {
-    .m-#{$num} {
-        margin: $medida !important;
-    }
+//determinando la escala de espaciado 
+$spacers: (
+  0: 0,
+  1: v.$spacer * .25, //0.25rem
+  2: v.$spacer * .5,  //0.5rem
+  3: v.$spacer,       //1rem
+  4: v.$spacer * 1.5, //1.5rem
+  5: v.$spacer * 3    //3rem
+) !default;
 
-    .p-#{$num} {
-        padding: $medida !important;
-    }
+//determinar los prefijos para margin y padding
+$properties: (
+  'm': 'margin',
+  'p': 'padding'
+) !default;
 
-    @each $abreviatura, $direccion in $lados {
-        .m#{$abreviatura}-#{$num} {
-            @if type-of($direccion)==list {
-                @each $d in $direccion {
-                    margin-#{$d}: $medida !important;
-                }
-            }
+//determinar sufijos de direccion 
+$sides: (
+  't': 'top',
+  'b': 'bottom',
+  's': 'start', //left en LTR, right en RTL
+  'e': 'end'    //right en LTR, left en RTL
+) !default;
 
-            @else {
-                margin-#{$direccion}: $medida !important;
-            }
-        }
+//generando la base first mobile 
+@include m.generate-spacing-utilities($spacers, $properties, $sides);
 
-        .p#{$abreviatura}-#{$num} {
-            @if type-of($direccion)==list {
-                @each $d in $direccion {
-                    padding-#{$d}: $medida !important;
-                }
-            }
-
-            @else {
-                padding-#{$direccion}: $medida !important;
-            }
-        }
-    }
+//haciendo la generación de clases responsivas para cada breakpoint definido en variables
+@each $bp, $value in v.$breakpoints {
+  @include m.media-breakpoint-up($bp) {
+      @include m.generate-spacing-utilities(
+          $spacers,
+          $properties,
+          $sides,
+          '-#{$bp}'
+      );
+  }
 }

@@ -6,14 +6,14 @@
 
 .row {
     display: flex;
-    flex-wrap: wrap;
-    margin-inline: calc(v.$grid-gutter / -2);
+    flex-wrap: wrap; // Esto permite que las columnas salten de línea si no caben
+    margin-inline: calc(v.$grid-gutter / -2); // Compensa el padding de las columnas
 
-    //eliminar el gutter entre filas
+    // Eliminar el gutter entre columnas si se usa la clase .no-gutters
     &.no-gutters {
         margin-inline: 0;
     
-        >[class*="col-"] {
+        > [class*="col-"] {
             padding-inline: 0;
         }
     }

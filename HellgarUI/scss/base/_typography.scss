@@ -1,32 +1,36 @@
-//Bucle para genera tamaños de fuente proporcionales (fs-1 es el más grande)
-@for $i from 1 through 6 {
-    .fs-#{$i} {
-        //Escala: fs-1 será aprox 2.5rem y bajará según el número
-        font-size: calc(#{$font-size-base} * (3.5 - (#{$i} * 0.5))) !important;
-    }
+//tipografia por defecto, es decir la base por defecto de la tipografia, que luego se puede modificar con las utilidades de tipografia
+
+@use '../variables' as v;
+
+body {
+    font-family: v.$font-family-base;
+    font-size:   v.$font-size-base;
+    color:       v.$dark;
+    background-color: #fff;
 }
 
-//Clases de utilidad para el grosor y alineación del texto
-.fw-bold {
-    font-weight: 700 !important;
+// Headings con jerarquía clara y consistente
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: v.$spacer * 0.5;
 }
 
-.fw-normal {
-    font-weight: 400 !important;
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+p {
+    margin-bottom: v.$spacer;
 }
 
-.text-center {
-    text-align: center !important;
+small {
+    font-size: 0.875em;
 }
 
-.text-right {
-    text-align: right !important;
-}
-
-.text-left {
-    text-align: left !important;
-}
-
-.text-justify {
-    text-align: justify !important;
+strong, b {
+    font-weight: 700;
 }

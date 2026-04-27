@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HellgarUI - Master Showcase</title>
+    <link rel="stylesheet" href="scss/main.css">
+    
+    <style>
+        /* Estilos de ayuda visual para la demostración del Grid */
+        .grid-example [class*="col-"] {
+            background-color: rgba(229, 57, 53, 0.1);
+            border: 1px solid #E53935;
+            padding: 1.5rem 0.75rem;
+            text-align: center;
+            border-radius: 4px;
+        }
+        .demo-section {
+            padding: 60px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .bg-light { background-color: #f8f9fa; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar text-center py-3" style="background-color: #212121; color: white;">
+        <div class="container">
+            <h2 class="fs-3 mb-0">HellgarUI</h2>
+        </div>
+    </nav>
+
+    <header class="demo-section text-center">
+        <div class="container">
+            <h1 class="fs-1 fw-bold mb-3">Bienvenido a HellgarUI</h1>
+            <p class="fs-4 mb-4">Un framework profesional desarrollado para la UES.</p>
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-primary btn-lg">Empezar ahora</button>
+                <button class="btn btn-outline-dark btn-lg ms-3">Saber más</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="demo-section bg-light">
+        <div class="container">
+            <h2 class="fs-2 mb-4 text-center">Sistema de Grid Responsivo</h2>
+            <div class="row grid-example">
+                <div class="col-12 col-md-6 col-lg-3 mb-3">Móvil 12 | PC 3</div>
+                <div class="col-12 col-md-6 col-lg-3 mb-3">Móvil 12 | PC 3</div>
+                <div class="col-12 col-md-6 col-lg-3 mb-3">Móvil 12 | PC 3</div>
+                <div class="col-12 col-md-6 col-lg-3 mb-3">Móvil 12 | PC 3</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="demo-section">
+        <div class="container">
+            <h2 class="fs-2 mb-5 text-center">Componentes y Utilidades</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card p-4">
+                        <h3 class="fs-4 fw-bold">Offsets</h3>
+                        <p class="fs-6 mt-2">Usa las clases de offset para centrar o mover elementos de forma precisa.</p>
+                        <button class="btn btn-dark mt-3">Probar</button>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card p-4">
+                        <h3 class="fs-4 fw-bold">Spacing</h3>
+                        <p class="fs-6 mt-2">Control total del aire con clases como mt-5, px-3 y mb-auto.</p>
+                        <button class="btn btn-primary mt-3">Documentación</button>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card p-4">
+                        <h3 class="fs-4 fw-bold">Display</h3>
+                        <p class="fs-6 mt-2">Oculta o muestra elementos según el dispositivo con d-none o d-flex.</p>
+                        <button class="btn btn-outline-primary mt-3">Ver ejemplos</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-5 text-center" style="background-color: #212121; color: #888;">
+        <div class="container">
+            <p class="mb-0">HellgarUI Framework &copy; 2026 - Universidad de El Salvador</p>
+            <p class="fs-6 mt-2">Diseñado por Isau Romero</p>
+        </div>
+    </footer>
+
+</body>
+</html>

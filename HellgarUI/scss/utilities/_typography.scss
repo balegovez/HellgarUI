@@ -1,0 +1,60 @@
+@use '../variables' as v;
+
+//Centrandonos en el tamaño de fuente, peso, alineación y transformación del texto
+
+//haciendo el mapa de escalado de tipografia (font-size = fs)
+$font-sizes: (
+    1: 2.5rem, 
+    2: 2rem,
+    3: 1.75rem,
+    4: 1.5rem,
+    5: 1.25rem,
+    6: 1rem,
+) !default;
+
+@each $key, $size in $font-sizes {
+    .fs-#{$key} {
+        font-size: $size;
+    }
+}
+
+//grosor de la fuentes ( fw = font-weight)
+.fw-light     { font-weight: 300; }
+.fw-normal    { font-weight: 400; }
+.fw-medium    { font-weight: 500; }
+.fw-semibold  { font-weight: 600; }
+.fw-bold      { font-weight: 700; }
+.fw-black     { font-weight: 900; }
+
+//alineación del texto ( ta = text-align)
+.text-start    { text-align: start; }
+.text-center   { text-align: center; }
+.text-end      { text-align: end; }
+.text-justify  { text-align: justify; }
+
+//estilos de texto
+.fst-italic    { font-style: italic; }
+.fst-normal    { font-style: normal; }
+
+//transformación de texto    //
+.text-lowercase   { text-transform: lowercase; }
+.text-uppercase   { text-transform: uppercase; }
+.text-capitalize  { text-transform: capitalize; }
+
+//decoración de texto
+.text-decoration-none        { text-decoration: none; }
+.text-decoration-underline   { text-decoration: underline; }
+.text-decoration-line-through { text-decoration: line-through; }
+
+//altura de la linea del texto
+.lh-1    { line-height: 1; }
+.lh-sm   { line-height: 1.25; }
+.lh-base { line-height: 1.5; }
+.lh-lg   { line-height: 2; }
+ 
+//utilidad del texto, truncar
+.text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
