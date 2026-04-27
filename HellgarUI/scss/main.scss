@@ -5,27 +5,15 @@
 // ======================================================
 @use 'variables' as v;
 @use 'mixins' as m;
-
-// ======================================================
-// 2. BASE (Los Cimientos)
-// Limpiamos estilos y establecemos la tipografía global.
-// ======================================================
+// 2) BASE (reset + tipografía global)
 @use 'base/reset';
 @use 'base/typography';
 
-// ======================================================
-// 3. LAYOUT (La Estructura)
-// Definimos el esqueleto del sitio.
-// ======================================================
-@use 'layout/breakpoints';
+// 3) LAYOUT (estructura: contenedores, filas, columnas, navbar)
 @use 'layout/grid';
-@use 'layout/columns';
 @use 'layout/navbar';
 
-// ======================================================
-// 4. COMPONENTES (Los Objetos)
-// Elementos específicos de la interfaz.
-// ======================================================
+// 4) COMPONENTES (objetos UI reutilizables)
 @use 'components/alerts';
 @use 'components/badges';
 @use 'components/buttons';
@@ -33,11 +21,11 @@
 @use 'components/forms';
 @use 'components/tables';
 
-// ======================================================
-// 5. UTILIDADES (Los Ajustes Finales)
-// Siempre van al final para que puedan forzar cambios 
-// (usando !important si es necesario) sobre los componentes.
-// ======================================================
+// 5) UTILIDADES (helpers de un solo propósito)
+// Van al FINAL para que puedan sobrescribir componentes.
 @use 'utilities/colors';
-@use 'utilities/display'; // <--- Igual que el anterior
-@use 'utilities/spacing'; // <--- Igual que el anterior
+@use 'utilities/typography' as utypography;
+@use 'utilities/spacing';
+@use 'utilities/display';
+@use 'utilities/flex';
+@use 'utilities/borders';

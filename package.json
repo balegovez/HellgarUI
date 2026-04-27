@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "HellgarUI es un framework CSS personalizado, robusto y responsivo. Diseñado bajo el paradigma Mobile First y desarrollado íntegramente con SASS, este framework busca proporcionar una arquitectura limpia y componentes sofisticados para aplicaciones web con un enfoque profesional y corporativo.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+"scripts": {
+  "build": "sass HellgarUI/scss/main.scss:dist/main.css --style=expanded --no-source-map",
+  "watch": "sass --watch HellgarUI/scss/main.scss:dist/main.css --style=expanded",
+  "build:min": "sass HellgarUI/scss/main.scss:dist/main.min.css --style=compressed --no-source-map"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/balegovez/HellgarUI.git"
@@ -17,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/balegovez/HellgarUI/issues"
   },
-  "homepage": "https://github.com/balegovez/HellgarUI#readme"
+  "homepage": "https://github.com/balegovez/HellgarUI#readme",
+  "devDependencies": {
+    "sass": "^1.99.0"
+  }
 }

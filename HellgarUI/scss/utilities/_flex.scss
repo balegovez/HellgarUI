@@ -1,0 +1,71 @@
+@use '../variables' as v;
+@use '../mixins' as m;
+
+//JUSTIFY-CONTENT
+$justify-values: (
+    'start':   flex-start,
+    'center':  center,
+    'end':     flex-end,
+    'between': space-between,
+    'around':  space-around,
+    'evenly':  space-evenly
+);
+
+//ALIGN-ITEMS
+$align-values: (
+    'start':    flex-start,
+    'center':   center,
+    'end':      flex-end,
+    'stretch':  stretch,
+    'baseline': baseline
+);
+
+// ----- Base mobile-first -----
+@each $key, $value in $justify-values {
+    .justify-content-#{$key} {
+        justify-content: $value;
+    }
+}
+
+@each $key, $value in $align-values {
+    .align-items-#{$key} {
+        align-items: $value;
+    }
+}
+
+// ----- Variantes responsivas -----
+@each $bp, $bp-value in v.$breakpoints {
+    @include m.media-breakpoint-up($bp) {
+
+        @each $key, $value in $justify-values {
+            .justify-content-#{$bp}-#{$key} {
+                justify-content: $value;
+            }
+        }
+
+        @each $key, $value in $align-values {
+            .align-items-#{$bp}-#{$key} {
+                align-items: $value;
+            }
+        }
+    }
+}
+
+//FLEX-DIRECTION (sin variantes responsivas para no inflar el CSS)
+.flex-row            { flex-direction: row; }
+.flex-row-reverse    { flex-direction: row-reverse; }
+.flex-column         { flex-direction: column; }
+.flex-column-reverse { flex-direction: column-reverse; }
+
+//FLEX-WRAP
+.flex-wrap         { flex-wrap: wrap; }
+.flex-nowrap       { flex-wrap: nowrap; }
+.flex-wrap-reverse { flex-wrap: wrap-reverse; }
+
+//GAP (alineado con la escala de spacers)
+.gap-0 { gap: 0; }
+.gap-1 { gap: v.$spacer * 0.25; }
+.gap-2 { gap: v.$spacer * 0.5; }
+.gap-3 { gap: v.$spacer; }
+.gap-4 { gap: v.$spacer * 1.5; }
+.gap-5 { gap: v.$spacer * 3; }

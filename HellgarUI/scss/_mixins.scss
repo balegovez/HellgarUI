@@ -1,16 +1,91 @@
 // _mixins.scss
 @use 'sass:map';
-@use 'variables' as v;
+@use 'variables' as v; 
 
 @mixin media-breakpoint-up($breakpoint) {
-  // Usamos map.get para cumplir con el estándar moderno de SASS
+  //usamos map.get para cumplir con el estándar moderno de SASS
   $size: map.get(v.$breakpoints, $breakpoint);
-  
+
   @if $size {
     @media (min-width: $size) {
       @content;
     }
   } @else {
     @error "El breakpoint '#{$breakpoint}' no existe en HellgarUI.";
+  }
+}
+
+//el alias corto para mantener compatibilidad con código existente
+@mixin respond-to($breakpoint) {
+  @include media-breakpoint-up($breakpoint) {
+    @content;
+  }
+}
+
+//haciendo un mixin 
+//produce las clases m-*, p-*, mt-*, pb-*, mx-*, py-*
+//parámetros:
+//$spacers: mapa de valores
+//$properties: mapa de propiedades (margin, padding)
+//$sides: mapa de lados (top, bottom, left, right, x, y)
+//$infix: string a insertar versiones responsivas
+
+@mixin generate-spacing-utilities($spacers, $properties, $sides, $infix: ''){
+
+  @each $prop-abbr, $prop-name in $properties {
+    @each $size-key, $size-value in $spacers {
+
+        // Clase general (afecta las 4 direcciones): .m-3, .p-md-4
+        .#{$prop-abbr}#{$infix}-#{$size-key} {
+            #{$prop-name}: $size-value;
+        }
+
+      //direcciones individuales: .mt-0, .pb-3, .ms-md-4, .pe-lg-2
+      @each $side-abbr, $side-name in $sides {
+        .#{$prop-abbr}#{$side-abbr}#{$infix}-#{$size-key} {
+            #{$prop-name}-#{$side-name}: $size-value;
+        }
+      }
+
+      //eje horizontal start + end
+      .#{$prop-abbr}x#{$infix}-#{$size-key} {
+        #{$prop-name}-inline: $size-value;
+      }
+
+      .#{$prop-abbr}y#{$infix}-#{$size-key} {
+        #{$prop-name}-block: $size-value;
+      }
+    }
+  }
+}
+
+//generar utilidades display y flexbox
+//Parámetros:
+//$display-values: lista de valores de display (ej. ('none', 'flex', ...))
+//$justify-values: mapa de justify-content (ej. ('center': 'center'))
+//$align-values:   mapa de align-items   (ej. ('stretch': 'stretch'))
+//$infix: string a insertar para versiones responsivas ('-md', '-lg')
+
+@mixin generate-display-utilities($display-values, $justify-values, $align-values, $infix: '') {
+
+  //clases de display: .d-none, .d-flex, .d-md-block
+  @each $value in $display-values {
+    .d#{$infix}-#{$value} {
+        display: #{$value};
+    }
+  }
+
+  //justify content: .justify-content-center, .justify-content-md-between
+  @each $key, $value in $justify-values {
+    .justify-content#{$infix}-#{$key} {
+        justify-content: #{$value};
+    }
+  }
+
+  //align items: .align-items-center, .align-items-md-stretch
+  @each $key, $value in $align-values {
+    .align-items#{$infix}-#{$key} {
+        align-items: #{$value};
+    }
   }
 }
