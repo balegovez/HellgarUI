@@ -2,9 +2,13 @@
 @use '../variables' as v;
 @use '../mixins' as m;
 
-// ======================================================
-// 1. COLUMNAS BASE (Sin breakpoints)
-// ======================================================
+//padding básico para todas las columnas
+.col, [class*="col-"] {
+    padding-inline: calc(v.$grid-gutter / 2);
+}
+
+
+//columnas bases, estas no tienen breakpoints
 .col {
     flex: 1 0 0%;
 }
@@ -21,9 +25,7 @@
     }
 }
 
-// ======================================================
-// 2. VARIANTES RESPONSIVAS (Loops de Breakpoints)
-// ======================================================
+//variaciones responsivas, estos son los lups de breakpoints
 @each $bp, $value in v.$breakpoints {
     
     @include m.media-breakpoint-up($bp) {
@@ -64,9 +66,7 @@
     }
 }
 
-// ======================================================
-// 3. UTILIDADES BASE Y OFFSETS FINALES (Sin Warning)
-// ======================================================
+//son las utilidades base y offsets finales. esto es sin advertencias
 @for $i from 0 through v.$grid-columns {
     .offset-#{$i} {
         // Aquí estaba el dolor de cabeza. Separamos el cálculo para que SASS no llore.
