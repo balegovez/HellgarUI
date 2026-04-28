@@ -50,7 +50,7 @@
             .offset-#{$bp}-#{$i} {
                 // Sintaxis ultra-moderna para evitar el warning de 'if'
                 $offset-val: math.percentage(math.div($i, v.$grid-columns));
-                margin-left: if($i == 0, 0, $offset-val);
+                margin-left: if($i == 0, 0, else $offset-val);
             }
         }
 

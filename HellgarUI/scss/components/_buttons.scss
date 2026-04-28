@@ -1,32 +1,65 @@
 @use 'sass:color';
+@use 'sass:map';
 @use '../variables' as v;
+@use '../mixins' as m;
 
 .btn {
+    // Estilos base (Mantenemos tu base con ajustes de Bootstrap)
     display: inline-block;
-    padding: 0.5rem 1rem;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
     border-radius: 0.25rem;
     cursor: pointer;
     border: 1px solid transparent;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    text-decoration: none;
 
-    &-primary { 
-        background-color: v.$primary; 
-        color: white; 
-        &:hover { background-color: color.adjust(v.$primary, $lightness: -10%); } 
+    &:focus {
+        outline: 0;
     }
-    &-secondary { 
-        background-color: v.$secondary; 
-        color: white; 
-        &:hover { background-color: color.adjust(v.$secondary, $lightness: 15%); } 
+
+    //     Tamaños de botones (Estilo Bootstrap)     //
+    &-lg { 
+        padding: 0.5rem 1rem; 
+        font-size: 1.25rem; 
+        border-radius: 0.3rem; 
     }
-    &-success { 
-        background-color: v.$success; 
-        color: white; 
-        &:hover { background-color: color.adjust(v.$success, $lightness: -10%); } 
+    &-sm { 
+        padding: 0.25rem 0.5rem; 
+        font-size: 0.875rem; 
+        border-radius: 0.2rem; 
     }
-    &-danger { 
-        background-color: v.$danger; 
-        color: white; 
-        &:hover { background-color: color.adjust(v.$danger, $lightness: -10%); } 
+
+    //     Tamaños Responsivos (Usando tus breakpoints de HellgarUI)     //
+    @each $breakpoint, $size in v.$breakpoints {
+        @include m.media-breakpoint-up($breakpoint) {
+            $infix: -#{$breakpoint};
+            
+            &#{$infix}-lg { padding: 0.5rem 1rem; font-size: 1.25rem; }
+            &#{$infix}-sm { padding: 0.25rem 0.5rem; font-size: 0.875rem; }
+            &#{$infix}-block { display: block; width: 100%; }
+        }
+    }
+
+    //     Variantes de color (Sólidos y Outline)     //
+    // Generados automáticamente desde tu mapa de colores en variables
+    @each $name, $color in v.$theme-colors {
+        @include m.make-button-variant($name, $color);
+    }
+
+    // Utilidad para ancho completo estático
+    &-block {
+        display: block;
+        width: 100%;
+        
+        // Espaciado entre botones de bloque apilados
+        + .btn-block {
+            margin-top: 0.5rem;
+        }
     }
 }

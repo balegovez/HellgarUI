@@ -14,13 +14,34 @@ $danger: #D32F2F;
 $warning: #FBC02D;
 $info: #1E88E5;
 
+//Mapa de colores para generación automática de componentes (Buttons, Alerts, etc)
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "danger":     $danger,
+  "warning":    $warning,
+  "info":       $info,
+  "light":      $light,
+  "dark":       $dark
+);
+
 //Tipografías bases
 $font-family-base: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 $font-size-base: 16px;
 
 //Espaciado base
 $spacer: 1rem;
-//
+
+//Mapa de espaciadores para utilidades m-* y p-*
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3
+);
 
 //Breakpoint pero primero orientado a móviles
 $breakpoints: (
@@ -30,7 +51,7 @@ $breakpoints: (
   'lg': 992px, //tamaño para computadora escritorio normal
   'xl': 1200px, //tamaño pantallas grandes (Gracias)
   'xxl': 1400px //tamaño para pantallas extra grandes
-  );
+);
 
 //     Variables para el diseeño del grid         //
 

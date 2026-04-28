@@ -3,91 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HellgarUI - Master Showcase</title>
+    <title>HellgarUI Docs | Laboratorio II - UES</title>
+    <!-- Ruta maestra a tu CSS compilado -->
     <link rel="stylesheet" href="scss/main.css">
-    
     <style>
-        /* Estilos de ayuda visual para la demostración del Grid */
-        .grid-example [class*="col-"] {
-            background-color: rgba(229, 57, 53, 0.1);
-            border: 1px solid #E53935;
-            padding: 1.5rem 0.75rem;
-            text-align: center;
-            border-radius: 4px;
+        :root { --primary-h: #E53935; --dark-h: #212121; }
+        body { background-color: #f8f9fa; margin: 0; display: flex; }
+        
+        /* Layout Sidebar */
+        .docs-sidebar { 
+            width: 260px; height: 100vh; position: fixed; 
+            background: var(--dark-h); color: white; padding: 2rem 1.5rem;
+            border-right: 5px solid var(--primary-h); overflow-y: auto;
         }
-        .demo-section {
-            padding: 60px 0;
-            border-bottom: 1px solid #eee;
-        }
-        .bg-light { background-color: #f8f9fa; }
+        .docs-content { margin-left: 280px; padding: 3rem; width: 100%; }
+        
+        /* Estilos de la Doc */
+        .doc-section { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 3rem; }
+        .example-box { border: 1px solid #eee; padding: 2rem; border-radius: 8px; background: #fafafa; margin-bottom: 1rem; }
+        pre { background: #272822; color: #f8f8f2; padding: 1rem; border-radius: 6px; overflow-x: auto; font-size: 0.85rem; }
+        
+        /* Visualización de Grid */
+        .grid-demo [class^="col-"] { background: rgba(229, 57, 53, 0.1); border: 1px solid var(--primary-h); padding: 10px; text-align: center; }
+        .nav-link { color: #ccc; text-decoration: none; display: block; padding: 8px 0; transition: 0.3s; }
+        .nav-link:hover { color: var(--primary-h); padding-left: 5px; }
     </style>
 </head>
 <body>
 
-    <nav class="navbar text-center py-3" style="background-color: #212121; color: white;">
-        <div class="container">
-            <h2 class="fs-3 mb-0">HellgarUI</h2>
-        </div>
-    </nav>
+    <!-- SIDEBAR (Requisito 2.1) -->
+    <aside class="docs-sidebar">
+        <h1 class="fs-3 fw-black text-primary">HELLGARUI 🔥</h1>
+        <p class="fs-6 text-muted">Ingeniería de Sistemas - UES</p>
+        <hr class="my-4">
+        <nav>
+            <div class="fw-bold text-uppercase fs-6 mb-2">1. Layout</div>
+            <a href="#grid" class="nav-link">Grid System</a>
+            <a href="#containers" class="nav-link">Containers</a>
 
-    <header class="demo-section text-center">
-        <div class="container">
-            <h1 class="fs-1 fw-bold mb-3">Bienvenido a HellgarUI</h1>
-            <p class="fs-4 mb-4">Un framework profesional desarrollado para la UES.</p>
-            <div class="d-flex justify-content-center">
-                <button class="btn btn-primary btn-lg">Empezar ahora</button>
-                <button class="btn btn-outline-dark btn-lg ms-3">Saber más</button>
-            </div>
-        </div>
-    </header>
+            <div class="fw-bold text-uppercase fs-6 mt-4 mb-2">2. Componentes</div>
+            <a href="#buttons" class="nav-link">Botones</a>
+            <a href="#alerts" class="nav-link">Alertas Semánticas</a>
 
-    <section class="demo-section bg-light">
-        <div class="container">
-            <h2 class="fs-2 mb-4 text-center">Sistema de Grid Responsivo</h2>
-            <div class="row grid-example">
-                <div class="col-12 col-md-6 col-lg-3 mb-3">Móvil 12 | PC 3</div>
-                <div class="col-12 col-md-6 col-lg-3 mb-3">Móvil 12 | PC 3</div>
-                <div class="col-12 col-md-6 col-lg-3 mb-3">Móvil 12 | PC 3</div>
-                <div class="col-12 col-md-6 col-lg-3 mb-3">Móvil 12 | PC 3</div>
-            </div>
-        </div>
-    </section>
+            <div class="fw-bold text-uppercase fs-6 mt-4 mb-2">3. Utilidades</div>
+            <a href="#typography" class="nav-link">Tipografía</a>
+            <a href="#flex" class="nav-link">Flexbox</a>
+        </nav>
+    </aside>
 
-    <section class="demo-section">
-        <div class="container">
-            <h2 class="fs-2 mb-5 text-center">Componentes y Utilidades</h2>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="card p-4">
-                        <h3 class="fs-4 fw-bold">Offsets</h3>
-                        <p class="fs-6 mt-2">Usa las clases de offset para centrar o mover elementos de forma precisa.</p>
-                        <button class="btn btn-dark mt-3">Probar</button>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card p-4">
-                        <h3 class="fs-4 fw-bold">Spacing</h3>
-                        <p class="fs-6 mt-2">Control total del aire con clases como mt-5, px-3 y mb-auto.</p>
-                        <button class="btn btn-primary mt-3">Documentación</button>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card p-4">
-                        <h3 class="fs-4 fw-bold">Display</h3>
-                        <p class="fs-6 mt-2">Oculta o muestra elementos según el dispositivo con d-none o d-flex.</p>
-                        <button class="btn btn-outline-primary mt-3">Ver ejemplos</button>
-                    </div>
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="docs-content">
+        <header class="mb-5">
+            <h1 class="fs-1 fw-black">Documentación Técnica</h1>
+            <p class="fs-4 text-secondary">Framework CSS Personalizado bajo metodología Mobile First.</p>
+        </header>
+
+        <!-- GRID SYSTEM (Requisito 2.2) -->
+        <section id="grid" class="doc-section">
+            <h2 class="fs-2 fw-bold text-primary">Sistema de Rejilla</h2>
+            <p>Sistema basado en 12 columnas responsivas.</p>
+            <div class="example-box grid-demo">
+                <div class="row">
+                    <div class="col-12 mb-2">col-12</div>
+                    <div class="col-md-6 mb-2">col-md-6</div>
+                    <div class="col-md-6 mb-2">col-md-6</div>
+                    <div class="col-lg-4">col-lg-4</div>
+                    <div class="col-lg-4">col-lg-4</div>
+                    <div class="col-lg-4">col-lg-4</div>
                 </div>
             </div>
-        </div>
-    </section>
+            <pre><code>&lt;div class="row"&gt;
+  &lt;div class="col-12 col-md-6 col-lg-4"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </section>
 
-    <footer class="py-5 text-center" style="background-color: #212121; color: #888;">
-        <div class="container">
-            <p class="mb-0">HellgarUI Framework &copy; 2026 - Universidad de El Salvador</p>
-            <p class="fs-6 mt-2">Diseñado por Isau Romero</p>
-        </div>
-    </footer>
+        <!-- BOTONES (Requisito 2.3) -->
+        <section id="buttons" class="doc-section">
+            <h2 class="fs-2 fw-bold text-primary">Botones</h2>
+            <p>Variantes sólidas, contorno y 3 tamaños obligatorios.</p>
+            <div class="example-box">
+                <div class="d-flex flex-wrap gap-2 align-items-center">
+                    <button class="btn btn-primary btn-lg">Grande</button>
+                    <button class="btn btn-secondary">Normal</button>
+                    <button class="btn btn-outline-success btn-sm">Pequeño Outline</button>
+                    <button class="btn btn-danger" disabled>Deshabilitado</button>
+                </div>
+            </div>
+            <pre><code>&lt;button class="btn btn-primary btn-lg"&gt;Grande&lt;/button&gt;
+&lt;button class="btn btn-outline-success btn-sm"&gt;Pequeño&lt;/button&gt;</code></pre>
+        </section>
 
+        <!-- ALERTAS (Requisito 2.3) -->
+        <section id="alerts" class="doc-section">
+            <h2 class="fs-2 fw-bold text-primary">Alertas</h2>
+            <div class="example-box">
+                <div class="alert alert-success"><strong>Éxito:</strong> Operación completada (Success).</div>
+                <div class="alert alert-danger"><strong>Peligro:</strong> Error crítico detectado (Danger).</div>
+                <div class="alert alert-warning"><strong>Advertencia:</strong> Revisa los datos (Warning).</div>
+                <div class="alert alert-info"><strong>Información:</strong> Actualización disponible (Info).</div>
+            </div>
+        </section>
+
+        <!-- TIPOGRAFÍA (Requisito 2.4) -->
+        <section id="typography" class="doc-section">
+            <h2 class="fs-2 fw-bold text-primary">Tipografía</h2>
+            <div class="example-box">
+                <h1 class="fs-1 fw-black">fs-1 Black</h1>
+                <h2 class="fs-2 fw-bold">fs-2 Bold</h2>
+                <p class="fs-6 text-center text-decoration-underline">fs-6 Centrado y Subrayado</p>
+            </div>
+        </section>
+
+    </main>
 </body>
 </html>
