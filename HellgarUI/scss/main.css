@@ -161,6 +161,10 @@ strong, b {
   padding-inline: 0;
 }
 
+.col, [class*=col-] {
+  padding-inline: 0.75rem;
+}
+
 .col {
   flex: 1 0 0%;
 }
@@ -4069,6 +4073,11 @@ strong, b {
     display: grid;
   }
 }
+
+.h-100 {
+  height: 100%;
+}
+
 .justify-content-start {
   justify-content: flex-start;
 }
