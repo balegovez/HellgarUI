@@ -100,7 +100,7 @@
   
   // Determinamos el contraste usando la nueva sintaxis de Sass para evitar errores
   $lightness: color.channel($color, "lightness", $space: hsl);
-  $text-color: if($lightness > 60%, #000, else #fff);
+  $text-color: if($lightness > 60%, #000, #fff);
 
   // Variante sólida
   &-#{$name} {

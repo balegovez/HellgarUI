@@ -112,6 +112,11 @@ strong, b {
   font-weight: 700;
 }
 
+pre {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
 .container {
   width: 100%;
   margin-inline: auto;
@@ -1411,12 +1416,12 @@ strong, b {
 .btn-primary {
   background-color: #E53935;
   border-color: #E53935;
-  color: else #fff;
+  color: #fff;
 }
 .btn-primary:hover {
   background-color: rgb(204.6578947368, 30.3947368421, 26.3421052632);
   border-color: rgb(195.6210526316, 29.0526315789, 25.1789473684);
-  color: else #fff;
+  color: #fff;
 }
 .btn-primary:focus {
   box-shadow: 0 0 0 0.25rem rgba(229, 57, 53, 0.5);
@@ -1436,7 +1441,7 @@ strong, b {
 }
 .btn-outline-primary:hover {
   background-color: #E53935;
-  color: else #fff;
+  color: #fff;
 }
 .btn-outline-primary:focus {
   box-shadow: 0 0 0 0.25rem rgba(229, 57, 53, 0.5);
@@ -1449,12 +1454,12 @@ strong, b {
 .btn-secondary {
   background-color: #212121;
   border-color: #212121;
-  color: else #fff;
+  color: #fff;
 }
 .btn-secondary:hover {
   background-color: rgb(7.5, 7.5, 7.5);
   border-color: rgb(2.4, 2.4, 2.4);
-  color: else #fff;
+  color: #fff;
 }
 .btn-secondary:focus {
   box-shadow: 0 0 0 0.25rem rgba(33, 33, 33, 0.5);
@@ -1474,7 +1479,7 @@ strong, b {
 }
 .btn-outline-secondary:hover {
   background-color: #212121;
-  color: else #fff;
+  color: #fff;
 }
 .btn-outline-secondary:focus {
   box-shadow: 0 0 0 0.25rem rgba(33, 33, 33, 0.5);
@@ -1487,12 +1492,12 @@ strong, b {
 .btn-success {
   background-color: #43A047;
   border-color: #43A047;
-  color: else #fff;
+  color: #fff;
 }
 .btn-success:hover {
   background-color: rgb(51.9471365639, 124.0528634361, 55.0484581498);
   border-color: rgb(48.9365638767, 116.8634361233, 51.8581497797);
-  color: else #fff;
+  color: #fff;
 }
 .btn-success:focus {
   box-shadow: 0 0 0 0.25rem rgba(67, 160, 71, 0.5);
@@ -1512,7 +1517,7 @@ strong, b {
 }
 .btn-outline-success:hover {
   background-color: #43A047;
-  color: else #fff;
+  color: #fff;
 }
 .btn-outline-success:focus {
   box-shadow: 0 0 0 0.25rem rgba(67, 160, 71, 0.5);
@@ -1525,12 +1530,12 @@ strong, b {
 .btn-danger {
   background-color: #D32F2F;
   border-color: #D32F2F;
-  color: else #fff;
+  color: #fff;
 }
 .btn-danger:hover {
   background-color: rgb(170.8571428571, 36.1428571429, 36.1428571429);
   border-color: rgb(162.4380952381, 34.3619047619, 34.3619047619);
-  color: else #fff;
+  color: #fff;
 }
 .btn-danger:focus {
   box-shadow: 0 0 0 0.25rem rgba(211, 47, 47, 0.5);
@@ -1550,7 +1555,7 @@ strong, b {
 }
 .btn-outline-danger:hover {
   background-color: #D32F2F;
-  color: else #fff;
+  color: #fff;
 }
 .btn-outline-danger:focus {
   box-shadow: 0 0 0 0.25rem rgba(211, 47, 47, 0.5);
@@ -1563,12 +1568,12 @@ strong, b {
 .btn-warning {
   background-color: #FBC02D;
   border-color: #FBC02D;
-  color: else #fff;
+  color: #fff;
 }
 .btn-warning:hover {
   background-color: rgb(240.4205607477, 172.8738317757, 4.5794392523);
   border-color: rgb(230.4112149533, 165.676635514, 4.3887850467);
-  color: else #fff;
+  color: #fff;
 }
 .btn-warning:focus {
   box-shadow: 0 0 0 0.25rem rgba(251, 192, 45, 0.5);
@@ -1588,7 +1593,7 @@ strong, b {
 }
 .btn-outline-warning:hover {
   background-color: #FBC02D;
-  color: else #fff;
+  color: #fff;
 }
 .btn-outline-warning:focus {
   box-shadow: 0 0 0 0.25rem rgba(251, 192, 45, 0.5);
@@ -1601,12 +1606,12 @@ strong, b {
 .btn-info {
   background-color: #1E88E5;
   border-color: #1E88E5;
-  color: else #fff;
+  color: #fff;
 }
 .btn-info:hover {
   background-color: rgb(21.5458167331, 109.3864541833, 186.4541832669);
   border-color: rgb(20.4892430279, 104.022310757, 177.3107569721);
-  color: else #fff;
+  color: #fff;
 }
 .btn-info:focus {
   box-shadow: 0 0 0 0.25rem rgba(30, 136, 229, 0.5);
@@ -1626,7 +1631,7 @@ strong, b {
 }
 .btn-outline-info:hover {
   background-color: #1E88E5;
-  color: else #fff;
+  color: #fff;
 }
 .btn-outline-info:focus {
   box-shadow: 0 0 0 0.25rem rgba(30, 136, 229, 0.5);
@@ -1677,12 +1682,12 @@ strong, b {
 .btn-dark {
   background-color: #121212;
   border-color: #121212;
-  color: else #fff;
+  color: #fff;
 }
 .btn-dark:hover {
   background-color: hsl(0, 0%, -2.9411764706%);
   border-color: hsl(0, 0%, -4.9411764706%);
-  color: else #fff;
+  color: #fff;
 }
 .btn-dark:focus {
   box-shadow: 0 0 0 0.25rem rgba(18, 18, 18, 0.5);
@@ -1702,7 +1707,7 @@ strong, b {
 }
 .btn-outline-dark:hover {
   background-color: #121212;
-  color: else #fff;
+  color: #fff;
 }
 .btn-outline-dark:focus {
   box-shadow: 0 0 0 0.25rem rgba(18, 18, 18, 0.5);
@@ -4073,7 +4078,6 @@ strong, b {
     display: grid;
   }
 }
-
 .h-100 {
   height: 100%;
 }
