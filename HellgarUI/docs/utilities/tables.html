@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tablas · HellgarUI</title>
+    <link rel="icon" href="../icon/hellgar-icon.png" type="image/png" />
+    <link rel="stylesheet" href="/HellgarUI/scss/main.css" />
+  </head>
+  <body class="bg-light">
+    <nav class="navbar">
+      <a href="/HellgarUI/docs/index.html" class="navbar-brand">HellgarUI</a>
+      <ul class="navbar-nav">
+        <li>
+          <a href="/HellgarUI/docs/index.html" class="navbar-link">Inicio</a>
+        </li>
+        <li><a href="grid.html" class="navbar-link">Grid</a></li>
+        <li><a href="buttons.html" class="navbar-link">Botones</a></li>
+        <li><a href="cards.html" class="navbar-link">Cards</a></li>
+        <li><a href="alerts.html" class="navbar-link">Alerts</a></li>
+        <li><a href="forms.html" class="navbar-link">Forms</a></li>
+        <li>
+          <a href="tables.html" class="navbar-link fw-bold text-primary"
+            >Tablas</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <header class="bg-secondary py-5">
+      <div class="container">
+        <span class="badge badge-primary mb-2">componente</span>
+        <h1 class="fs-1 fw-bold text-white m-0">Tablas</h1>
+        <p class="fs-5 text-light m-0">
+          Tablas limpias con header destacado, hover y borde opcional.
+        </p>
+      </div>
+    </header>
+
+    <main class="container py-5">
+      <div class="row">
+        <aside class="col-12 col-md-3 mb-4">
+          <div class="card shadow-sm">
+            <div class="card-header">En esta página</div>
+            <div class="card-body">
+              <ul class="d-flex flex-column gap-2">
+                <li>
+                  <a href="#basica" class="navbar-link text-dark"
+                    >Tabla básica</a
+                  >
+                </li>
+                <li>
+                  <a href="#bordered" class="navbar-link text-dark"
+                    >Con bordes</a
+                  >
+                </li>
+                <li>
+                  <a href="#hover" class="navbar-link text-dark">Con hover</a>
+                </li>
+                <li>
+                  <a href="#combinada" class="navbar-link text-dark"
+                    >Todo junto</a
+                  >
+                </li>
+                <li>
+                  <a href="#acciones" class="navbar-link text-dark"
+                    >Con acciones</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+
+        <div class="col-12 col-md-9">
+          <article id="basica" class="mb-5">
+            <h2 class="fs-2 fw-bold mb-3">Tabla básica</h2>
+            <p class="mb-3">
+              La clase base es <code>.table</code> sobre el
+              <code>&lt;table&gt;</code>. Ya viene con padding en celdas, header
+              con fondo gris suave y una linea inferior bajo cada fila.
+            </p>
+
+            <div class="card shadow-sm mb-3">
+              <div class="card-header">Vista previa</div>
+              <div class="card-body bg-light">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Nombre</th>
+                      <th>Tipo</th>
+                      <th>Nivel</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>Houndour</td>
+                      <td>Siniestro / Fuego</td>
+                      <td>15</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Houndoom</td>
+                      <td>Siniestro / Fuego</td>
+                      <td>42</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>Mega Houndoom</td>
+                      <td>Siniestro / Fuego</td>
+                      <td>50</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="card-footer p-0">
+                <pre
+                  class="bg-secondary text-light p-3 m-0"
+                ><code>&lt;table class="table"&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;#&lt;/th&gt;
+            &lt;th&gt;Nombre&lt;/th&gt;
+            &lt;th&gt;Tipo&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;1&lt;/td&gt;
+            &lt;td&gt;Houndour&lt;/td&gt;
+            &lt;td&gt;Siniestro / Fuego&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+              </div>
+            </div>
+          </article>
+
+          <article id="bordered" class="mb-5">
+            <!-- el bordered es util cuando tenes muchas columnas y el ojo se pierde -->
+            <h2 class="fs-2 fw-bold mb-3">Tabla con bordes</h2>
+            <p class="mb-3">
+              Sumale <code>.table-bordered</code> y todas las celdas reciben
+              borde por los 4 lados. Ideal cuando hay muchas columnas y queres
+              separarlas mejor.
+            </p>
+
+            <div class="card shadow-sm mb-3">
+              <div class="card-header">Bordes en cada celda</div>
+              <div class="card-body bg-light">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Producto</th>
+                      <th>Stock</th>
+                      <th>Precio</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Collar de fuego</td>
+                      <td>12</td>
+                      <td>$25.00</td>
+                    </tr>
+                    <tr>
+                      <td>Cuerno siniestro</td>
+                      <td>4</td>
+                      <td>$48.50</td>
+                    </tr>
+                    <tr>
+                      <td>Anillo brasa</td>
+                      <td>0</td>
+                      <td>$33.00</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="card-footer p-0">
+                <pre
+                  class="bg-secondary text-light p-3 m-0"
+                ><code>&lt;table class="table table-bordered"&gt;
+    &lt;!-- mismas thead/tbody que la basica --&gt;
+&lt;/table&gt;</code></pre>
+              </div>
+            </div>
+          </article>
+
+          <article id="hover" class="mb-5">
+            <h2 class="fs-2 fw-bold mb-3">Tabla con hover</h2>
+            <p class="mb-3">
+              Con <code>.table-hover</code>, al pasar el mouse por una fila se
+              tiñe de un rojo suave (es el color primario con baja opacidad).
+              Util en tablas largas donde el usuario tiene que escanear datos.
+            </p>
+
+            <div class="card shadow-sm mb-3">
+              <div class="card-header">Pasa el mouse por encima</div>
+              <div class="card-body bg-light">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Usuario</th>
+                      <th>Email</th>
+                      <th>Estado</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>ana_dev</td>
+                      <td>ana@hellgar.dev</td>
+                      <td><span class="badge badge-primary">activa</span></td>
+                    </tr>
+                    <tr>
+                      <td>bruno91</td>
+                      <td>bruno@hellgar.dev</td>
+                      <td>
+                        <span class="badge badge-secondary">inactivo</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>cami.kun</td>
+                      <td>cami@hellgar.dev</td>
+                      <td><span class="badge badge-accent">pendiente</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="card-footer p-0">
+                <pre
+                  class="bg-secondary text-light p-3 m-0"
+                ><code>&lt;table class="table table-hover"&gt;
+    &lt;!-- contenido --&gt;
+&lt;/table&gt;</code></pre>
+              </div>
+            </div>
+          </article>
+
+          <article id="combinada" class="mb-5">
+            <h2 class="fs-2 fw-bold mb-3">Combinando bordered y hover</h2>
+            <p class="mb-3">
+              Las clases <code>.table-bordered</code> y
+              <code>.table-hover</code> se pueden usar juntas sin problema.
+              Quedan tablas mas serias estilo "panel de admin".
+            </p>
+
+            <div class="card shadow-sm mb-3">
+              <div class="card-header">Combo final</div>
+              <div class="card-body bg-light">
+                <table class="table table-bordered table-hover">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Pedido</th>
+                      <th>Cliente</th>
+                      <th>Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>#001</td>
+                      <td>Camiseta Houndoom</td>
+                      <td>Ana</td>
+                      <td>$22.00</td>
+                    </tr>
+                    <tr>
+                      <td>#002</td>
+                      <td>Taza brasa</td>
+                      <td>Bruno</td>
+                      <td>$10.00</td>
+                    </tr>
+                    <tr>
+                      <td>#003</td>
+                      <td>Sticker pack</td>
+                      <td>Cami</td>
+                      <td>$5.50</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="card-footer p-0">
+                <pre
+                  class="bg-secondary text-light p-3 m-0"
+                ><code>&lt;table class="table table-bordered table-hover"&gt;
+    &lt;!-- contenido --&gt;
+&lt;/table&gt;</code></pre>
+              </div>
+            </div>
+          </article>
+
+          <article id="acciones">
+            <!-- meto botones chicos en la ultima columna, queda lindo -->
+            <h2 class="fs-2 fw-bold mb-3">Tabla con acciones</h2>
+            <p class="mb-3">
+              Patrón muy comun: una columna final con botones para editar o
+              borrar. Usa <code>.btn-sm</code> para que no rompan el alto de la
+              fila.
+            </p>
+
+            <div class="card shadow-sm mb-3">
+              <div class="card-header">Listado con acciones</div>
+              <div class="card-body bg-light">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Nombre</th>
+                      <th>Rol</th>
+                      <th class="text-end">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Ana</td>
+                      <td>Admin</td>
+                      <td class="text-end">
+                        <button class="btn btn-info btn-sm">Editar</button>
+                        <button class="btn btn-danger btn-sm">Borrar</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Bruno</td>
+                      <td>Editor</td>
+                      <td class="text-end">
+                        <button class="btn btn-info btn-sm">Editar</button>
+                        <button class="btn btn-danger btn-sm">Borrar</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Cami</td>
+                      <td>Lector</td>
+                      <td class="text-end">
+                        <button class="btn btn-info btn-sm">Editar</button>
+                        <button class="btn btn-danger btn-sm">Borrar</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="card-footer p-0">
+                <pre class="bg-secondary text-light p-3 m-0"><code>&lt;tr&gt;
+    &lt;td&gt;Ana&lt;/td&gt;
+    &lt;td&gt;Admin&lt;/td&gt;
+    &lt;td class="text-end"&gt;
+        &lt;button class="btn btn-info btn-sm"&gt;Editar&lt;/button&gt;
+        &lt;button class="btn btn-danger btn-sm"&gt;Borrar&lt;/button&gt;
+    &lt;/td&gt;
+&lt;/tr&gt;</code></pre>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </main>
+
+    <footer class="bg-dark text-light py-4 mt-5">
+      <div class="container text-center">
+        <p class="m-0">HellgarUI · Documentación de tablas</p>
+      </div>
+    </footer>
+  </body>
+</html>
