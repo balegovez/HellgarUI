@@ -27,4 +27,4 @@ Solo enlace el main.css compilado con el head de su HTML y listo.
 
 Para enlazar puede usar la etiqueta:
 
-<link rel="stylesheet" href="main.css">
+`<link rel="stylesheet" href="main.css">`

@@ -2062,8 +2062,97 @@ pre {
   gap: 0.5rem;
   cursor: pointer;
 }
-.form-check input[type=checkbox] {
+.form-check input[type=checkbox],
+.form-check input[type=radio] {
   accent-color: #E53935;
+}
+
+.form-text {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.form-control-outline {
+  background-color: transparent;
+  border-width: 2px;
+}
+
+.form-control-flush {
+  border-width: 0 0 1px 0;
+  border-radius: 0;
+  background-color: transparent;
+  padding-inline: 0;
+}
+
+.form-control-pill {
+  border-radius: 50rem;
+  padding-inline: 1rem;
+}
+
+.input-group {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%;
+}
+.input-group .form-control {
+  position: relative;
+  flex: 1 1 auto;
+  width: 1%;
+  min-width: 0;
+  margin-bottom: 0;
+}
+.input-group .form-control:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.input-group .form-control:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.form-floating {
+  position: relative;
+}
+.form-floating .form-control {
+  height: calc(3.5rem + 2px);
+  padding: 1rem 0.75rem;
+}
+.form-floating .form-control::-moz-placeholder {
+  color: transparent;
+}
+.form-floating .form-control::placeholder {
+  color: transparent;
+}
+.form-floating .form-control:not(:-moz-placeholder) {
+  padding-top: 1.625rem;
+  padding-bottom: 0.625rem;
+}
+.form-floating .form-control:focus, .form-floating .form-control:not(:placeholder-shown) {
+  padding-top: 1.625rem;
+  padding-bottom: 0.625rem;
+}
+.form-floating .form-control:not(:-moz-placeholder) ~ .form-label {
+  opacity: 0.65;
+  transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+}
+.form-floating .form-control:focus ~ .form-label, .form-floating .form-control:not(:placeholder-shown) ~ .form-label {
+  opacity: 0.65;
+  transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+}
+.form-floating .form-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  padding: 1rem 0.75rem;
+  pointer-events: none;
+  transform-origin: 0 0;
+  transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
+  margin-bottom: 0;
 }
 
 .table {
