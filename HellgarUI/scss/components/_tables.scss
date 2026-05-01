@@ -1,33 +1,110 @@
+@use 'sass:color';
+@use 'sass:map';
 @use '../variables' as v;
+
+$table-cell-padding-y:        0.75rem;
+$table-cell-padding-x:        0.75rem;
+$table-cell-padding-y-sm:     0.4rem;
+$table-cell-padding-x-sm:     0.5rem;
+
+$table-border-color:          rgba(v.$dark, 0.1);
+$table-head-bg:               rgba(v.$dark, 0.05);
+$table-head-border:           v.$secondary;
+
+$table-striped-bg:            rgba(v.$dark, 0.08); 
+$table-hover-bg:              rgba(v.$primary, 0.15); 
 
 .table {
     width: 100%;
     margin-bottom: v.$spacer;
     color: v.$dark;
     vertical-align: top;
-    border-color: rgba(v.$dark, 0.1);
+    border-color: $table-border-color;
     border-collapse: collapse;
 
     th, td {
-        padding: 0.75rem;
-        border-bottom: 1px solid rgba(v.$dark, 0.1);
+        padding: $table-cell-padding-y $table-cell-padding-x;
+        border-bottom: 1px solid $table-border-color;
         text-align: left;
+
+        transition: background-color 0.2s ease;
     }
 
-    thead {
-        background-color: rgba(v.$dark, 0.05);
-        th { border-bottom: 2px solid v.$secondary; }
+    thead th {
+        background-color: $table-head-bg;
+        border-bottom: 2px solid $table-head-border;
     }
 
-    // Variantes solicitadas
     &-bordered {
-        th, td { border: 1px solid rgba(v.$dark, 0.1); }
+        th, td { 
+            border: 1px solid $table-border-color; 
+        }
+    }
+
+    &-striped {
+        tbody tr:nth-of-type(odd) {
+            td, th {
+                background-color: $table-striped-bg;
+            }
+        }
     }
 
     &-hover {
+        // Simplificado y dirigido directamente a la fila en estado hover
         tbody tr:hover {
-            background-color: rgba(v.$primary, 0.05); // Fondo sutil con tu color primario
-            transition: background-color 0.2s ease;
+            td, th {
+                background-color: $table-hover-bg;
+            }
         }
     }
+
+    &-sm {
+        th, td {
+            padding: $table-cell-padding-y-sm $table-cell-padding-x-sm;
+        }
+    }
+
+    &-borderless {
+        th, td { 
+            border: 0; 
+        }
+
+        thead th { 
+            border-bottom: 0; 
+        }
+    }
+}
+
+@each $name, $color in v.$theme-colors {
+
+    $bg-soft:     color.mix(#fff, $color, 85%);
+    $border-soft: color.mix(#fff, $color, 60%);
+
+    .table-#{$name} {
+        background-color: $bg-soft !important;
+        color: v.$dark;
+        border-color: $border-soft;
+
+        > th,
+        > td {
+            background-color: $bg-soft !important;
+            border-color: $border-soft;
+        }
+    }
+
+    .border-#{$name} {
+        border-color: $color !important;
+    }
+
+    table.table-bordered.border-#{$name} {
+        th, td {
+            border-color: $color;
+        }
+    }
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
