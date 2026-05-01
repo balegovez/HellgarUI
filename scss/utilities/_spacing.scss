@@ -1,0 +1,43 @@
+@use '../variables' as v;
+@use '../mixins' as m;
+
+//utilidades de espaciado 
+
+//determinando la escala de espaciado 
+$spacers: (
+  0: 0,
+  1: v.$spacer * .25, //0.25rem
+  2: v.$spacer * .5,  //0.5rem
+  3: v.$spacer,       //1rem
+  4: v.$spacer * 1.5, //1.5rem
+  5: v.$spacer * 3    //3rem
+) !default;
+
+//determinar los prefijos para margin y padding
+$properties: (
+  'm': 'margin',
+  'p': 'padding'
+) !default;
+
+//determinar sufijos de direccion 
+$sides: (
+  't': 'top',
+  'b': 'bottom',
+  's': 'start', //left en LTR, right en RTL
+  'e': 'end'    //right en LTR, left en RTL
+) !default;
+
+//generando la base first mobile 
+@include m.generate-spacing-utilities($spacers, $properties, $sides);
+
+//haciendo la generación de clases responsivas para cada breakpoint definido en variables
+@each $bp, $value in v.$breakpoints {
+  @include m.media-breakpoint-up($bp) {
+      @include m.generate-spacing-utilities(
+          $spacers,
+          $properties,
+          $sides,
+          '-#{$bp}'
+      );
+  }
+}

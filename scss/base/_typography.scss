@@ -1,0 +1,41 @@
+//tipografia por defecto, es decir la base por defecto de la tipografia, que luego se puede modificar con las utilidades de tipografia
+
+@use '../variables' as v;
+
+body {
+    font-family: v.$font-family-base;
+    font-size:   v.$font-size-base;
+    color:       v.$dark;
+    background-color: #fff;
+}
+
+// Headings con jerarquía clara y consistente
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: v.$spacer * 0.5;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+p {
+    margin-bottom: v.$spacer;
+}
+
+small {
+    font-size: 0.875em;
+}
+
+strong, b {
+    font-weight: 700;
+}
+
+pre {
+    overflow-x: auto;
+    max-width: 100%;
+}
