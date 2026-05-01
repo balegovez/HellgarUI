@@ -52,7 +52,8 @@
   gap: 0.5rem;
   cursor: pointer;
 
-  input[type="checkbox"] {
+  input[type="checkbox"],
+  input[type="radio"] {
     accent-color: v.$primary;
   }
 }
@@ -128,9 +129,8 @@
       }
     }
   }
-}
 
-.form-label {
+  .form-label {
     position: absolute;
     top: 0;
     left: 0;
@@ -140,4 +140,5 @@
     transform-origin: 0 0;
     transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
     margin-bottom: 0;
+  }
 }
