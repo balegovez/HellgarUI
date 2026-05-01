@@ -1,52 +1,224 @@
 @use '../variables' as v;
 @use '../mixins' as m;
 
+$navbar-padding-y:           v.$spacer;
+$navbar-padding-x:           v.$spacer * 2;
+$navbar-bg:                  v.$secondary;
+$navbar-shadow:              0 2px 10px rgba(0, 0, 0, 0.3);
+$navbar-link-color:          v.$light;
+$navbar-link-hover:          v.$primary;
+$navbar-toggler-size:        1.75rem;
+$navbar-toggler-bar-height:  3px;
+
 .navbar {
+    position: relative;
     display: flex;
-    flex-direction: column;
-    padding: v.$spacer (v.$spacer * 2);
-    background-color: v.$secondary;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    flex-wrap: wrap;
+    align-items: center;
+    padding: $navbar-padding-y $navbar-padding-x;
+    background-color: $navbar-bg;
+    box-shadow: $navbar-shadow;
 
     &-brand {
         color: v.$primary;
         font-size: 1.5rem;
         font-weight: bold;
         text-decoration: none;
-        margin-bottom: v.$spacer;
+        margin-right: auto;
+
+        &:hover { color: v.$light; }
+
+        &.navbar-brand-light {
+            color: v.$light;
+
+            &:hover { color: v.$primary; }
+        }
+    }
+
+    &-toggler {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: $navbar-toggler-size;
+        height: 1.4rem;
+        padding: 0;
+        background: transparent;
+        border: 0;
+        cursor: pointer;
+
+        span {
+            display: block;
+            height: $navbar-toggler-bar-height;
+            background-color: v.$light;
+            border-radius: 2px;
+            transition: transform 0.25s ease, opacity 0.2s ease, background-color 0.2s ease;
+        }
+
+        &:hover span { background-color: v.$primary; }
     }
 
     &-nav {
-        display: flex;
+        display: none;
         flex-direction: column;
         gap: v.$spacer;
         list-style: none;
         padding: 0;
-        margin: 0;
+        margin: v.$spacer 0 0 0;
+        width: 100%;
     }
 
     &-link {
-        color: v.$light;
+        position: relative;
+        color: $navbar-link-color;
         text-decoration: none;
-        transition: color 0.3s;
+        padding: 0.25rem 0;
+        transition: color 0.2s ease;
 
-        &:hover {
+        &:hover { color: $navbar-link-hover; }
+
+        &.active {
             color: v.$primary;
+            font-weight: 600;
+
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: -4px;
+                height: 2px;
+                background-color: v.$primary;
+                border-radius: 2px;
+            }
         }
+    }
+
+    &-search {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background-color: rgba(v.$light, 0.1);
+        padding: 0.4rem 0.75rem;
+        border-radius: 50rem;
+        transition: background-color 0.2s ease;
+        width: 100%;
+
+        &:focus-within { background-color: rgba(v.$light, 0.18); }
+
+        input {
+            flex: 1;
+            min-width: 0;
+            background: transparent;
+            border: 0;
+            outline: 0;
+            color: v.$light;
+            font-size: 0.95rem;
+
+            &::placeholder { color: rgba(v.$light, 0.6); }
+        }
+    }
+
+    &-cta {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: v.$spacer;
+        width: 100%;
+    }
+
+    &-divider {
+        display: none;
+        width: 1px;
+        height: 1.5rem;
+        background-color: rgba(v.$light, 0.2);
+    }
+
+    &-toggle:checked ~ &-nav,
+    &-toggle:checked ~ &-cta {
+        display: flex;
+    }
+
+    &-toggle:checked ~ &-toggler {
+        span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        span:nth-child(2) { opacity: 0; }
+        span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
     }
 
     @include m.respond-to('md') {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+        flex-wrap: nowrap;
 
-        &-brand {
-            margin-bottom: 0;
-        }
+        .navbar-toggler { display: none; }
 
-        &-nav {
+        .navbar-nav {
+            display: flex;
             flex-direction: row;
-            gap: (v.$spacer * 2);
+            flex-wrap: wrap;
+            align-items: center;
+            gap: (v.$spacer * 1.5);
+            margin: 0;
+            width: auto;
         }
+
+        .navbar-search {
+            width: auto;
+            min-width: 220px;
+        }
+
+        .navbar-cta {
+            display: flex;
+            flex-direction: row;
+            margin-top: 0;
+            width: auto;
+            gap: 0.75rem;
+        }
+
+        .navbar-divider { display: block; }
     }
+
+    &-light {
+        background-color: v.$light;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+
+        .navbar-brand,
+        .navbar-link { color: v.$dark; }
+
+        .navbar-link:hover,
+        .navbar-link.active { color: v.$primary; }
+
+        .navbar-toggler span { background-color: v.$dark; }
+
+        .navbar-search {
+            background-color: rgba(v.$dark, 0.06);
+
+            input { color: v.$dark; }
+            input::placeholder { color: rgba(v.$dark, 0.5); }
+        }
+
+        .navbar-divider { background-color: rgba(v.$dark, 0.15); }
+    }
+
+    &-transparent {
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    &-sticky {
+        position: sticky;
+        top: 0;
+        z-index: 1020;
+    }
+
+    &-fixed-top {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1030;
+    }
+}
+
+.navbar-toggle {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
 }
