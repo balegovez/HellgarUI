@@ -1,19 +1,17 @@
-// ======================================================
 // 1. CONFIGURACIÓN (El Cerebro)
-// Primero cargamos variables y mixins para que estén 
-// disponibles en todos los archivos de abajo.
-// ======================================================
+
 @use 'variables' as v;
 @use 'mixins' as m;
 // 2) BASE (reset + tipografía global)
 @use 'base/reset';
 @use 'base/typography';
 
-// 3) LAYOUT (estructura: contenedores, filas, columnas, navbar)
+//LAYOUT (estructura: contenedores, filas, columnas, navbar)
 @use 'layout/grid';
 @use 'layout/navbar';
+@use 'layout/footer';
 
-// 4) COMPONENTES (objetos UI reutilizables)
+//COMPONENTES (objetos UI reutilizables)
 @use 'components/alerts';
 @use 'components/badges';
 @use 'components/buttons';
@@ -21,8 +19,7 @@
 @use 'components/forms';
 @use 'components/tables';
 
-// 5) UTILIDADES (helpers de un solo propósito)
-// Van al FINAL para que puedan sobrescribir componentes.
+//UTILIDADES (helpers de un solo propósito)
 @use 'utilities/colors';
 @use 'utilities/typography' as utypography;
 @use 'utilities/spacing';
