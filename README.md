@@ -23,3 +23,8 @@ HellgarUI utiliza una paleta vibrante y nostálgica inspirada en el universo Pok
 * José Isaú Romero Gómez. RG24063
 
 ## Guía Rápida de Instalación
+Solo enlace el main.css compilado con el head de su HTML y listo.
+
+Para enlazar puede usar la etiqueta:
+
+<link rel="stylesheet" href="main.css">
