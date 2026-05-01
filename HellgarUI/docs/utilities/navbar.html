@@ -9,24 +9,32 @@
   </head>
   <body class="bg-light">
     <nav class="navbar">
-      <a href="/HellgarUI/docs/index.html" class="navbar-brand">HellgarUI</a>
+      <a href="../index.html" class="navbar-brand">HellgarUI</a>
 
       <input type="checkbox" id="main-nav-toggle" class="navbar-toggle" />
-      <label for="main-nav-toggle" class="navbar-toggler" aria-label="Abrir menú">
+      <label
+        for="main-nav-toggle"
+        class="navbar-toggler"
+        aria-label="Abrir menú"
+      >
         <span></span><span></span><span></span>
       </label>
 
       <ul class="navbar-nav">
-        <li><a href="/HellgarUI/docs/index.html" class="navbar-link">Inicio</a></li>
+        <li><a href="../index.html" class="navbar-link">Inicio</a></li>
         <li><a href="grid.html" class="navbar-link">Grid</a></li>
         <li><a href="buttons.html" class="navbar-link">Botones</a></li>
         <li><a href="cards.html" class="navbar-link">Cards</a></li>
-        <li>
-          <a href="navbars.html" class="navbar-link active">Navbars</a>
-        </li>
         <li><a href="alerts.html" class="navbar-link">Alerts</a></li>
         <li><a href="forms.html" class="navbar-link">Forms</a></li>
         <li><a href="tables.html" class="navbar-link">Tablas</a></li>
+        <li><a href="colors.html" class="navbar-link">Colores</a></li>
+        <li><a href="typography.html" class="navbar-link">Tipografía</a></li>
+        <li><a href="spacing.html" class="navbar-link">Spacing</a></li>
+        <li><a href="utilities.html" class="navbar-link">Utilidades</a></li>
+        <li><a href="badges.html" class="navbar-link">Badges</a></li>
+        <li><a href="../utilities/navbar.html" class="navbar-link active">Navbars</a></li>
+        <li><a href="../utilities/footer.html" class="navbar-link">Footers</a></li>
       </ul>
     </nav>
 
@@ -49,49 +57,31 @@
             <div class="card-body">
               <ul class="d-flex flex-column gap-2">
                 <li>
-                  <a href="#basico" class="navbar-link text-dark"
-                    >Navbar base</a
-                  >
+                  <a href="#basico" class="navbar-link text-dark">Navbar base</a>
                 </li>
                 <li>
-                  <a href="#activo" class="navbar-link text-dark"
-                    >Estado activo</a
-                  >
+                  <a href="#activo" class="navbar-link text-dark">Estado activo</a>
                 </li>
                 <li>
-                  <a href="#light" class="navbar-link text-dark"
-                    >Variante clara</a
-                  >
+                  <a href="#light" class="navbar-link text-dark">Variante clara</a>
                 </li>
                 <li>
-                  <a href="#transparent" class="navbar-link text-dark"
-                    >Transparente</a
-                  >
+                  <a href="#transparent" class="navbar-link text-dark">Transparente</a>
                 </li>
                 <li>
-                  <a href="#search" class="navbar-link text-dark"
-                    >Con búsqueda</a
-                  >
+                  <a href="#search" class="navbar-link text-dark">Con búsqueda</a>
                 </li>
                 <li>
-                  <a href="#cta" class="navbar-link text-dark"
-                    >Con CTA</a
-                  >
+                  <a href="#cta" class="navbar-link text-dark">Con CTA</a>
                 </li>
                 <li>
-                  <a href="#completo" class="navbar-link text-dark"
-                    >Combo completo</a
-                  >
+                  <a href="#completo" class="navbar-link text-dark">Combo completo</a>
                 </li>
                 <li>
-                  <a href="#sticky" class="navbar-link text-dark"
-                    >Sticky / Fixed</a
-                  >
+                  <a href="#sticky" class="navbar-link text-dark">Sticky / Fixed</a>
                 </li>
                 <li>
-                  <a href="#responsive" class="navbar-link text-dark"
-                    >Cómo es responsive</a
-                  >
+                  <a href="#responsive" class="navbar-link text-dark">Cómo es responsive</a>
                 </li>
               </ul>
             </div>
@@ -119,7 +109,7 @@
               </div>
               <div class="card-body bg-light p-0">
                 <nav class="navbar" style="margin: 0; border-radius: 0;">
-                  <a href="#" class="navbar-brand">MiMarca</a>
+                  <a href="#" class="navbar-brand">Marca</a>
 
                   <input
                     type="checkbox"
@@ -141,7 +131,7 @@
                 <pre
                   class="bg-secondary text-light p-3 m-0"
                 ><code>&lt;nav class="navbar"&gt;
-    &lt;a href="#" class="navbar-brand"&gt;MiMarca&lt;/a&gt;
+    &lt;a href="#" class="navbar-brand"&gt;Marca&lt;/a&gt;
 
     &lt;input type="checkbox" id="nav-toggle" class="navbar-toggle"&gt;
     &lt;label for="nav-toggle" class="navbar-toggler"&gt;
@@ -169,7 +159,7 @@
               <div class="card-header">El primer enlace tiene .active</div>
               <div class="card-body bg-light p-0">
                 <nav class="navbar" style="margin: 0; border-radius: 0;">
-                  <a href="#" class="navbar-brand">MiMarca</a>
+                  <a href="#" class="navbar-brand">Marca</a>
 
                   <input
                     type="checkbox"
@@ -208,7 +198,7 @@
               <div class="card-header">Vista previa</div>
               <div class="card-body bg-dark p-4">
                 <nav class="navbar navbar-light rounded">
-                  <a href="#" class="navbar-brand">MiMarca</a>
+                  <a href="#" class="navbar-brand">Marca</a>
 
                   <input
                     type="checkbox"
@@ -255,7 +245,7 @@
                   class="navbar navbar-transparent"
                   style="margin: 0; padding: 1rem 1.5rem;"
                 >
-                  <a href="#" class="navbar-brand">Brasa</a>
+                  <a href="#" class="navbar-brand text-white">Marca</a>
 
                   <input
                     type="checkbox"
@@ -296,7 +286,7 @@
               <div class="card-header">Vista previa</div>
               <div class="card-body bg-light p-0">
                 <nav class="navbar" style="margin: 0; border-radius: 0;">
-                  <a href="#" class="navbar-brand">Hellmart</a>
+                  <a href="#" class="navbar-brand">Marca</a>
 
                   <input
                     type="checkbox"
@@ -345,7 +335,7 @@
               <div class="card-header">Login + Sign up</div>
               <div class="card-body bg-light p-0">
                 <nav class="navbar" style="margin: 0; border-radius: 0;">
-                  <a href="#" class="navbar-brand">Hellgar SaaS</a>
+                  <a href="#" class="navbar-brand">Marca</a>
 
                   <input
                     type="checkbox"
@@ -362,7 +352,7 @@
                     <li><a href="#" class="navbar-link">Docs</a></li>
                   </ul>
 
-                  <div class="navbar-cta">
+                  <div class="navbar-cta px-2">
                     <a href="#" class="btn btn-outline-light btn-sm">
                       Iniciar sesión
                     </a>
@@ -375,7 +365,8 @@
                   class="bg-secondary text-light p-3 m-0"
                 ><code>&lt;ul class="navbar-nav"&gt;...&lt;/ul&gt;
 
-&lt;div class="navbar-cta"&gt;
+&lt;!-- Con ms-md-4 agregamos el margen necesario --&gt;
+&lt;div class="navbar-cta ms-md-4"&gt;
     &lt;a href="#" class="btn btn-outline-light btn-sm"&gt;Iniciar sesión&lt;/a&gt;
     &lt;a href="#" class="btn btn-primary btn-sm"&gt;Sign up&lt;/a&gt;
 &lt;/div&gt;</code></pre>
@@ -396,7 +387,7 @@
               <div class="card-header">Layout estilo SaaS</div>
               <div class="card-body bg-light p-0">
                 <nav class="navbar" style="margin: 0; border-radius: 0;">
-                  <a href="#" class="navbar-brand">Hellforge</a>
+                  <a href="#" class="navbar-brand">Marca</a>
 
                   <input
                     type="checkbox"
@@ -422,7 +413,7 @@
                     </li>
                   </ul>
 
-                  <div class="navbar-cta">
+                  <div class="navbar-cta px-2">
                     <a href="#" class="btn btn-primary btn-sm">+ Nuevo</a>
                   </div>
                 </nav>
@@ -488,7 +479,7 @@
 
     <footer class="bg-dark text-light py-4 mt-5">
       <div class="container text-center">
-        <p class="m-0">HellgarUI · Documentación de navbars</p>
+        <p class="m-0">HellgarUI © · 2026</p>
       </div>
     </footer>
   </body>

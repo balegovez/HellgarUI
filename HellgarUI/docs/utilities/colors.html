@@ -2,48 +2,39 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Colores · HellgarUI</title>
-    <link rel="icon" href="../icon/hellgar-icon.png" type="image/png"/>
-    <link rel="stylesheet" href="/HellgarUI/scss/main.css"/>
-    <style>
-      .swatch {
-        height: 100px;
-        border-radius: 0.5rem;
-        display: flex;
-        align-items: flex-end;
-        padding: 0.75rem;
-        font-weight: 600;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-      }
-      .swatch-meta {
-        font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
-        font-size: 0.8rem;
-        color: rgba(0, 0, 0, 0.55);
-        margin-top: 0.4rem;
-      }
-    </style>
+    <link rel="icon" href="../icon/hellgar-icon.png" type="image/png" />
+    <link rel="stylesheet" href="/HellgarUI/scss/main.css" />
   </head>
   <body class="bg-light">
     <nav class="navbar">
-      <a href="/HellgarUI/docs/index.html" class="navbar-brand">HellgarUI</a>
+      <a href="../index.html" class="navbar-brand">HellgarUI</a>
+
+      <input type="checkbox" id="main-nav-toggle" class="navbar-toggle" />
+      <label
+        for="main-nav-toggle"
+        class="navbar-toggler"
+        aria-label="Abrir menú"
+      >
+        <span></span><span></span><span></span>
+      </label>
+
       <ul class="navbar-nav">
-        <li><a href="/HellgarUI/docs/index.html" class="navbar-link">Inicio</a></li>
+        <li><a href="../index.html" class="navbar-link">Inicio</a></li>
         <li><a href="grid.html" class="navbar-link">Grid</a></li>
         <li><a href="buttons.html" class="navbar-link">Botones</a></li>
         <li><a href="cards.html" class="navbar-link">Cards</a></li>
         <li><a href="alerts.html" class="navbar-link">Alerts</a></li>
         <li><a href="forms.html" class="navbar-link">Forms</a></li>
         <li><a href="tables.html" class="navbar-link">Tablas</a></li>
-        <li>
-          <a href="colors.html" class="navbar-link fw-bold text-primary"
-            >Colores</a
-          >
-        </li>
+        <li><a href="colors.html" class="navbar-link active">Colores</a></li>
         <li><a href="typography.html" class="navbar-link">Tipografía</a></li>
         <li><a href="spacing.html" class="navbar-link">Spacing</a></li>
         <li><a href="utilities.html" class="navbar-link">Utilidades</a></li>
         <li><a href="badges.html" class="navbar-link">Badges</a></li>
+        <li><a href="../utilities/navbar.html" class="navbar-link">Navbars</a></li>
+        <li><a href="../utilities/footer.html" class="navbar-link">Footers</a></li>
       </ul>
     </nav>
 
@@ -109,16 +100,58 @@
               <div class="card-body bg-light">
                 <div class="row">
                   <div class="col-12 col-md-4 mb-3 px-2">
-                    <div class="swatch bg-primary text-white">primary</div>
-                    <div class="swatch-meta">$primary · #E53935</div>
+                    <div
+                      class="bg-primary text-white d-flex align-items-end p-3 rounded shadow-sm fw-semibold"
+                      style="height: 100px"
+                    >
+                      primary
+                    </div>
+                    <div
+                      class="text-muted mt-1"
+                      style="
+                        font-family:
+                          ui-monospace, SFMono-Regular, Consolas, monospace;
+                        font-size: 0.85rem;
+                      "
+                    >
+                      $primary · #E53935
+                    </div>
                   </div>
                   <div class="col-12 col-md-4 mb-3 px-2">
-                    <div class="swatch bg-secondary text-white">secondary</div>
-                    <div class="swatch-meta">$secondary · #212121</div>
+                    <div
+                      class="bg-secondary text-white d-flex align-items-end p-3 rounded shadow-sm fw-semibold"
+                      style="height: 100px"
+                    >
+                      secondary
+                    </div>
+                    <div
+                      class="text-muted mt-1"
+                      style="
+                        font-family:
+                          ui-monospace, SFMono-Regular, Consolas, monospace;
+                        font-size: 0.85rem;
+                      "
+                    >
+                      $secondary · #212121
+                    </div>
                   </div>
                   <div class="col-12 col-md-4 mb-3 px-2">
-                    <div class="swatch bg-accent">accent</div>
-                    <div class="swatch-meta">$accent · #FF9800</div>
+                    <div
+                      class="bg-accent d-flex align-items-end p-3 rounded shadow-sm fw-semibold"
+                      style="height: 100px"
+                    >
+                      accent
+                    </div>
+                    <div
+                      class="text-muted mt-1"
+                      style="
+                        font-family:
+                          ui-monospace, SFMono-Regular, Consolas, monospace;
+                        font-size: 0.85rem;
+                      "
+                    >
+                      $accent · #FF9800
+                    </div>
                   </div>
                 </div>
               </div>
@@ -129,12 +162,40 @@
               <div class="card-body bg-light">
                 <div class="row">
                   <div class="col-12 col-md-6 mb-3 px-2">
-                    <div class="swatch bg-light">light</div>
-                    <div class="swatch-meta">$light · #F5F5F5</div>
+                    <div
+                      class="bg-light border d-flex align-items-end p-3 rounded shadow-sm fw-semibold"
+                      style="height: 100px"
+                    >
+                      light
+                    </div>
+                    <div
+                      class="text-muted mt-1"
+                      style="
+                        font-family:
+                          ui-monospace, SFMono-Regular, Consolas, monospace;
+                        font-size: 0.85rem;
+                      "
+                    >
+                      $light · #F5F5F5
+                    </div>
                   </div>
                   <div class="col-12 col-md-6 mb-3 px-2">
-                    <div class="swatch bg-dark text-white">dark</div>
-                    <div class="swatch-meta">$dark · #121212</div>
+                    <div
+                      class="bg-dark text-white d-flex align-items-end p-3 rounded shadow-sm fw-semibold"
+                      style="height: 100px"
+                    >
+                      dark
+                    </div>
+                    <div
+                      class="text-muted mt-1"
+                      style="
+                        font-family:
+                          ui-monospace, SFMono-Regular, Consolas, monospace;
+                        font-size: 0.85rem;
+                      "
+                    >
+                      $dark · #121212
+                    </div>
                   </div>
                 </div>
               </div>
@@ -144,10 +205,9 @@
           <article id="semanticos" class="mb-5">
             <h2 class="fs-2 fw-bold mb-3">Colores semánticos</h2>
             <p class="mb-3">
-              Cuatro colores con significado fijo: éxito, peligro, advertencia
-              e información. Se usan en alertas, badges, validaciones y
-              cualquier feedback visual donde el color tiene que comunicar
-              algo concreto.
+              Cuatro colores con significado fijo: éxito, peligro, advertencia e
+              información. Se usan en alertas, badges, validaciones y cualquier
+              feedback visual donde el color tiene que comunicar algo concreto.
             </p>
 
             <div class="card shadow-sm mb-3">
@@ -155,20 +215,76 @@
               <div class="card-body bg-light">
                 <div class="row">
                   <div class="col-6 col-md-3 mb-3 px-2">
-                    <div class="swatch bg-success text-white">success</div>
-                    <div class="swatch-meta">#43A047</div>
+                    <div
+                      class="bg-success text-white d-flex align-items-end p-3 rounded shadow-sm fw-semibold"
+                      style="height: 100px"
+                    >
+                      success
+                    </div>
+                    <div
+                      class="text-muted mt-1"
+                      style="
+                        font-family:
+                          ui-monospace, SFMono-Regular, Consolas, monospace;
+                        font-size: 0.85rem;
+                      "
+                    >
+                      #43A047
+                    </div>
                   </div>
                   <div class="col-6 col-md-3 mb-3 px-2">
-                    <div class="swatch bg-danger text-white">danger</div>
-                    <div class="swatch-meta">#D32F2F</div>
+                    <div
+                      class="bg-danger text-white d-flex align-items-end p-3 rounded shadow-sm fw-semibold"
+                      style="height: 100px"
+                    >
+                      danger
+                    </div>
+                    <div
+                      class="text-muted mt-1"
+                      style="
+                        font-family:
+                          ui-monospace, SFMono-Regular, Consolas, monospace;
+                        font-size: 0.85rem;
+                      "
+                    >
+                      #D32F2F
+                    </div>
                   </div>
                   <div class="col-6 col-md-3 mb-3 px-2">
-                    <div class="swatch bg-warning">warning</div>
-                    <div class="swatch-meta">#FBC02D</div>
+                    <div
+                      class="bg-warning d-flex align-items-end p-3 rounded shadow-sm fw-semibold"
+                      style="height: 100px"
+                    >
+                      warning
+                    </div>
+                    <div
+                      class="text-muted mt-1"
+                      style="
+                        font-family:
+                          ui-monospace, SFMono-Regular, Consolas, monospace;
+                        font-size: 0.85rem;
+                      "
+                    >
+                      #FBC02D
+                    </div>
                   </div>
                   <div class="col-6 col-md-3 mb-3 px-2">
-                    <div class="swatch bg-info text-white">info</div>
-                    <div class="swatch-meta">#1E88E5</div>
+                    <div
+                      class="bg-info text-white d-flex align-items-end p-3 rounded shadow-sm fw-semibold"
+                      style="height: 100px"
+                    >
+                      info
+                    </div>
+                    <div
+                      class="text-muted mt-1"
+                      style="
+                        font-family:
+                          ui-monospace, SFMono-Regular, Consolas, monospace;
+                        font-size: 0.85rem;
+                      "
+                    >
+                      #1E88E5
+                    </div>
                   </div>
                 </div>
               </div>
@@ -207,7 +323,7 @@
                 <p class="text-warning fw-bold m-0">Texto en text-warning.</p>
                 <p class="text-info fw-bold m-0">Texto en text-info.</p>
                 <p class="text-muted m-0">
-                  Texto en text-muted (gris suave para info secundaria).
+                  Texto en text-muted (gris suave para información secundaria).
                 </p>
               </div>
               <div class="card-footer p-0">
@@ -247,11 +363,10 @@
           <article id="contraste">
             <h2 class="fs-2 fw-bold mb-3">Auto-contraste</h2>
             <p class="mb-3">
-              Los colores con fondo oscuro (primary, secondary, success,
-              danger, info, dark) ya aplican color de texto claro
-              automáticamente. No tenés que sumar <code>.text-white</code>. Si
-              querés forzar otro color, simplemente sobreescribilo con la
-              clase explícita.
+              Los colores con fondo oscuro (primary, secondary, success, danger,
+              info, dark) ya aplican color de texto claro automáticamente. No
+              tenés que sumar <code>.text-white</code>. Si querés forzar otro
+              color, simplemente sobreescribilo con la clase explícita.
             </p>
 
             <div class="card shadow-sm">

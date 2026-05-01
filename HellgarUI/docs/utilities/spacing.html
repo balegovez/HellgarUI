@@ -6,40 +6,22 @@
     <title>Spacing · HellgarUI</title>
     <link rel="icon" href="../icon/hellgar-icon.png" type="image/png" />
     <link rel="stylesheet" href="/HellgarUI/scss/main.css" />
-    <style>
-      .demo-box {
-        background: rgba(229, 57, 53, 0.08);
-        border: 1px dashed rgba(229, 57, 53, 0.5);
-        border-radius: 4px;
-      }
-      .demo-padding {
-        background: rgba(33, 33, 33, 0.85);
-        color: #fff;
-        font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
-        font-size: 0.85rem;
-        text-align: center;
-      }
-      .demo-margin-wrap {
-        background: rgba(229, 57, 53, 0.06);
-        border: 1px dashed rgba(229, 57, 53, 0.3);
-        border-radius: 4px;
-      }
-      .demo-margin-inner {
-        background: rgba(33, 33, 33, 0.85);
-        color: #fff;
-        text-align: center;
-        font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
-        font-size: 0.85rem;
-        padding: 0.5rem;
-        border-radius: 4px;
-      }
-    </style>
   </head>
   <body class="bg-light">
     <nav class="navbar">
-      <a href="/HellgarUI/docs/index.html" class="navbar-brand">HellgarUI</a>
+      <a href="../index.html" class="navbar-brand">HellgarUI</a>
+
+      <input type="checkbox" id="main-nav-toggle" class="navbar-toggle" />
+      <label
+        for="main-nav-toggle"
+        class="navbar-toggler"
+        aria-label="Abrir menú"
+      >
+        <span></span><span></span><span></span>
+      </label>
+
       <ul class="navbar-nav">
-        <li><a href="/HellgarUI/docs/index.html" class="navbar-link">Inicio</a></li>
+        <li><a href="../index.html" class="navbar-link">Inicio</a></li>
         <li><a href="grid.html" class="navbar-link">Grid</a></li>
         <li><a href="buttons.html" class="navbar-link">Botones</a></li>
         <li><a href="cards.html" class="navbar-link">Cards</a></li>
@@ -48,13 +30,15 @@
         <li><a href="tables.html" class="navbar-link">Tablas</a></li>
         <li><a href="colors.html" class="navbar-link">Colores</a></li>
         <li><a href="typography.html" class="navbar-link">Tipografía</a></li>
-        <li>
-          <a href="spacing.html" class="navbar-link fw-bold text-primary"
-            >Spacing</a
-          >
-        </li>
+        <li><a href="spacing.html" class="navbar-link active">Spacing</a></li>
         <li><a href="utilities.html" class="navbar-link">Utilidades</a></li>
         <li><a href="badges.html" class="navbar-link">Badges</a></li>
+        <li>
+          <a href="../utilities/navbar.html" class="navbar-link">Navbars</a>
+        </li>
+        <li>
+          <a href="../utilities/footer.html" class="navbar-link">Footers</a>
+        </li>
       </ul>
     </nav>
 
@@ -79,9 +63,7 @@
                   <a href="#escala" class="navbar-link text-dark">La escala</a>
                 </li>
                 <li>
-                  <a href="#sintaxis" class="navbar-link text-dark"
-                    >Sintaxis</a
-                  >
+                  <a href="#sintaxis" class="navbar-link text-dark">Sintaxis</a>
                 </li>
                 <li>
                   <a href="#padding" class="navbar-link text-dark">Padding</a>
@@ -90,9 +72,7 @@
                   <a href="#margin" class="navbar-link text-dark">Margin</a>
                 </li>
                 <li>
-                  <a href="#ejes" class="navbar-link text-dark"
-                    >Ejes (x, y)</a
-                  >
+                  <a href="#ejes" class="navbar-link text-dark">Ejes (x, y)</a>
                 </li>
                 <li>
                   <a href="#responsivo" class="navbar-link text-dark"
@@ -109,8 +89,8 @@
             <h2 class="fs-2 fw-bold mb-3">La escala</h2>
             <p class="mb-3">
               El sistema se basa en seis pasos calculados a partir del
-              <code>$spacer</code> base (1rem = 16px). Sirve igual para
-              padding y para margin.
+              <code>$spacer</code> base (1rem = 16px). Sirve igual para padding
+              y para margin.
             </p>
 
             <div class="card shadow-sm mb-3">
@@ -126,12 +106,42 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr><td>0</td><td>0</td><td>0</td><td>0px</td></tr>
-                    <tr><td>1</td><td>0.25</td><td>0.25rem</td><td>4px</td></tr>
-                    <tr><td>2</td><td>0.5</td><td>0.5rem</td><td>8px</td></tr>
-                    <tr><td>3</td><td>1</td><td>1rem</td><td>16px</td></tr>
-                    <tr><td>4</td><td>1.5</td><td>1.5rem</td><td>24px</td></tr>
-                    <tr><td>5</td><td>3</td><td>3rem</td><td>48px</td></tr>
+                    <tr>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>0px</td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>0.25</td>
+                      <td>0.25rem</td>
+                      <td>4px</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>0.5</td>
+                      <td>0.5rem</td>
+                      <td>8px</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>1</td>
+                      <td>1rem</td>
+                      <td>16px</td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>1.5</td>
+                      <td>1.5rem</td>
+                      <td>24px</td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>3</td>
+                      <td>3rem</td>
+                      <td>48px</td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -141,7 +151,8 @@
           <article id="sintaxis" class="mb-5">
             <h2 class="fs-2 fw-bold mb-3">Sintaxis</h2>
             <p class="mb-3">
-              El patrón es <code>{propiedad}{lado}-{tamaño}</code> y opcionalmente
+              El patrón es <code>{propiedad}{lado}-{tamaño}</code> y
+              opcionalmente
               <code>{propiedad}{lado}-{breakpoint}-{tamaño}</code> para
               responsivo.
             </p>
@@ -149,16 +160,15 @@
             <div class="card shadow-sm mb-3">
               <div class="card-header">Atajos</div>
               <div class="card-body bg-light">
-                <ul class="m-0" style="padding-left: 1.2rem;">
+                <ul class="m-0" style="padding-left: 1.2rem">
                   <li><code>m</code> = margin · <code>p</code> = padding</li>
                   <li>
                     <code>t</code> = top · <code>b</code> = bottom ·
-                    <code>s</code> = start (left) · <code>e</code> = end
-                    (right)
+                    <code>s</code> = start (left) · <code>e</code> = end (right)
                   </li>
                   <li>
-                    <code>x</code> = horizontal (start + end) ·
-                    <code>y</code> = vertical (top + bottom)
+                    <code>x</code> = horizontal (start + end) · <code>y</code> =
+                    vertical (top + bottom)
                   </li>
                   <li>
                     Sin sufijo de lado: aplica a los cuatro (ej.
@@ -180,27 +190,112 @@
           <article id="padding" class="mb-5">
             <h2 class="fs-2 fw-bold mb-3">Padding</h2>
             <p class="mb-3">
-              <code>.p-0</code> hasta <code>.p-5</code> sobre los cuatro
-              lados. Las cajas de adentro muestran cuánto crece el padding.
+              <code>.p-0</code> hasta <code>.p-5</code> sobre los cuatro lados.
+              Las cajas de adentro muestran cuánto crece el padding.
             </p>
 
             <div class="card shadow-sm mb-3">
               <div class="card-header">Vista previa</div>
               <div class="card-body bg-light">
-                <div class="demo-box mb-2 p-1">
-                  <div class="demo-padding">.p-1 · 0.25rem</div>
+                <div
+                  class="mb-2 p-1"
+                  style="
+                    background: rgba(229, 57, 53, 0.08);
+                    border: 1px dashed rgba(229, 57, 53, 0.5);
+                    border-radius: 4px;
+                  "
+                >
+                  <div
+                    class="text-white text-center"
+                    style="
+                      background: rgba(33, 33, 33, 0.85);
+                      font-family:
+                        ui-monospace, SFMono-Regular, Consolas, monospace;
+                      font-size: 0.85rem;
+                    "
+                  >
+                    .p-1 · 0.25rem
+                  </div>
                 </div>
-                <div class="demo-box mb-2 p-2">
-                  <div class="demo-padding">.p-2 · 0.5rem</div>
+                <div
+                  class="mb-2 p-2"
+                  style="
+                    background: rgba(229, 57, 53, 0.08);
+                    border: 1px dashed rgba(229, 57, 53, 0.5);
+                    border-radius: 4px;
+                  "
+                >
+                  <div
+                    class="text-white text-center"
+                    style="
+                      background: rgba(33, 33, 33, 0.85);
+                      font-family:
+                        ui-monospace, SFMono-Regular, Consolas, monospace;
+                      font-size: 0.85rem;
+                    "
+                  >
+                    .p-2 · 0.5rem
+                  </div>
                 </div>
-                <div class="demo-box mb-2 p-3">
-                  <div class="demo-padding">.p-3 · 1rem</div>
+                <div
+                  class="mb-2 p-3"
+                  style="
+                    background: rgba(229, 57, 53, 0.08);
+                    border: 1px dashed rgba(229, 57, 53, 0.5);
+                    border-radius: 4px;
+                  "
+                >
+                  <div
+                    class="text-white text-center"
+                    style="
+                      background: rgba(33, 33, 33, 0.85);
+                      font-family:
+                        ui-monospace, SFMono-Regular, Consolas, monospace;
+                      font-size: 0.85rem;
+                    "
+                  >
+                    .p-3 · 1rem
+                  </div>
                 </div>
-                <div class="demo-box mb-2 p-4">
-                  <div class="demo-padding">.p-4 · 1.5rem</div>
+                <div
+                  class="mb-2 p-4"
+                  style="
+                    background: rgba(229, 57, 53, 0.08);
+                    border: 1px dashed rgba(229, 57, 53, 0.5);
+                    border-radius: 4px;
+                  "
+                >
+                  <div
+                    class="text-white text-center"
+                    style="
+                      background: rgba(33, 33, 33, 0.85);
+                      font-family:
+                        ui-monospace, SFMono-Regular, Consolas, monospace;
+                      font-size: 0.85rem;
+                    "
+                  >
+                    .p-4 · 1.5rem
+                  </div>
                 </div>
-                <div class="demo-box p-5">
-                  <div class="demo-padding">.p-5 · 3rem</div>
+                <div
+                  class="p-5"
+                  style="
+                    background: rgba(229, 57, 53, 0.08);
+                    border: 1px dashed rgba(229, 57, 53, 0.5);
+                    border-radius: 4px;
+                  "
+                >
+                  <div
+                    class="text-white text-center"
+                    style="
+                      background: rgba(33, 33, 33, 0.85);
+                      font-family:
+                        ui-monospace, SFMono-Regular, Consolas, monospace;
+                      font-size: 0.85rem;
+                    "
+                  >
+                    .p-5 · 3rem
+                  </div>
                 </div>
               </div>
             </div>
@@ -214,14 +309,78 @@
             </p>
 
             <div class="card shadow-sm mb-3">
-              <div class="card-header">Vista previa · separación entre bloques</div>
+              <div class="card-header">
+                Vista previa · separación entre bloques
+              </div>
               <div class="card-body bg-light">
-                <div class="demo-margin-wrap p-2">
-                  <div class="demo-margin-inner mb-1">.mb-1</div>
-                  <div class="demo-margin-inner mb-2">.mb-2</div>
-                  <div class="demo-margin-inner mb-3">.mb-3</div>
-                  <div class="demo-margin-inner mb-4">.mb-4</div>
-                  <div class="demo-margin-inner">sin margin · final</div>
+                <div
+                  class="p-2"
+                  style="
+                    background: rgba(229, 57, 53, 0.06);
+                    border: 1px dashed rgba(229, 57, 53, 0.3);
+                    border-radius: 4px;
+                  "
+                >
+                  <div
+                    class="mb-1 text-white text-center p-2"
+                    style="
+                      background: rgba(33, 33, 33, 0.85);
+                      font-family:
+                        ui-monospace, SFMono-Regular, Consolas, monospace;
+                      font-size: 0.85rem;
+                      border-radius: 4px;
+                    "
+                  >
+                    .mb-1
+                  </div>
+                  <div
+                    class="mb-2 text-white text-center p-2"
+                    style="
+                      background: rgba(33, 33, 33, 0.85);
+                      font-family:
+                        ui-monospace, SFMono-Regular, Consolas, monospace;
+                      font-size: 0.85rem;
+                      border-radius: 4px;
+                    "
+                  >
+                    .mb-2
+                  </div>
+                  <div
+                    class="mb-3 text-white text-center p-2"
+                    style="
+                      background: rgba(33, 33, 33, 0.85);
+                      font-family:
+                        ui-monospace, SFMono-Regular, Consolas, monospace;
+                      font-size: 0.85rem;
+                      border-radius: 4px;
+                    "
+                  >
+                    .mb-3
+                  </div>
+                  <div
+                    class="mb-4 text-white text-center p-2"
+                    style="
+                      background: rgba(33, 33, 33, 0.85);
+                      font-family:
+                        ui-monospace, SFMono-Regular, Consolas, monospace;
+                      font-size: 0.85rem;
+                      border-radius: 4px;
+                    "
+                  >
+                    .mb-4
+                  </div>
+                  <div
+                    class="text-white text-center p-2"
+                    style="
+                      background: rgba(33, 33, 33, 0.85);
+                      font-family:
+                        ui-monospace, SFMono-Regular, Consolas, monospace;
+                      font-size: 0.85rem;
+                      border-radius: 4px;
+                    "
+                  >
+                    sin margin · final
+                  </div>
                 </div>
               </div>
             </div>
@@ -238,11 +397,45 @@
             <div class="card shadow-sm mb-3">
               <div class="card-header">Vista previa</div>
               <div class="card-body bg-light">
-                <div class="demo-box mb-2 px-4 py-2">
-                  <div class="demo-padding">.px-4 .py-2</div>
+                <div
+                  class="mb-2 px-4 py-2"
+                  style="
+                    background: rgba(229, 57, 53, 0.08);
+                    border: 1px dashed rgba(229, 57, 53, 0.5);
+                    border-radius: 4px;
+                  "
+                >
+                  <div
+                    class="text-white text-center"
+                    style="
+                      background: rgba(33, 33, 33, 0.85);
+                      font-family:
+                        ui-monospace, SFMono-Regular, Consolas, monospace;
+                      font-size: 0.85rem;
+                    "
+                  >
+                    .px-4 .py-2
+                  </div>
                 </div>
-                <div class="demo-box px-2 py-4">
-                  <div class="demo-padding">.px-2 .py-4</div>
+                <div
+                  class="px-2 py-4"
+                  style="
+                    background: rgba(229, 57, 53, 0.08);
+                    border: 1px dashed rgba(229, 57, 53, 0.5);
+                    border-radius: 4px;
+                  "
+                >
+                  <div
+                    class="text-white text-center"
+                    style="
+                      background: rgba(33, 33, 33, 0.85);
+                      font-family:
+                        ui-monospace, SFMono-Regular, Consolas, monospace;
+                      font-size: 0.85rem;
+                    "
+                  >
+                    .px-2 .py-4
+                  </div>
                 </div>
               </div>
               <div class="card-footer p-0">
@@ -259,8 +452,8 @@
             <p class="mb-3">
               Cualquier clase de spacing acepta un breakpoint en el medio:
               <code>sm</code>, <code>md</code>, <code>lg</code>,
-              <code>xl</code>, <code>xxl</code>. La regla aplica desde ese
-              ancho hacia arriba (mobile-first).
+              <code>xl</code>, <code>xxl</code>. La regla aplica desde ese ancho
+              hacia arriba (mobile-first).
             </p>
 
             <div class="card shadow-sm mb-3">
@@ -283,8 +476,23 @@
             <div class="card shadow-sm">
               <div class="card-header">Demo en vivo</div>
               <div class="card-body bg-light">
-                <div class="demo-box p-2 p-md-4 p-lg-5">
-                  <div class="demo-padding">
+                <div
+                  class="p-2 p-md-4 p-lg-5"
+                  style="
+                    background: rgba(229, 57, 53, 0.08);
+                    border: 1px dashed rgba(229, 57, 53, 0.5);
+                    border-radius: 4px;
+                  "
+                >
+                  <div
+                    class="text-white text-center"
+                    style="
+                      background: rgba(33, 33, 33, 0.85);
+                      font-family:
+                        ui-monospace, SFMono-Regular, Consolas, monospace;
+                      font-size: 0.85rem;
+                    "
+                  >
                     p-2 en mobile · p-md-4 desde 768px · p-lg-5 desde 992px
                   </div>
                 </div>
