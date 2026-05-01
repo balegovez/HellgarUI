@@ -4,7 +4,7 @@
 @use '../mixins' as m;
 
 .btn {
-    // Estilos base (Mantenemos tu base con ajustes de Bootstrap)
+    //estilo base, lo principal
     display: inline-block;
     padding: 0.375rem 0.75rem;
     font-size: 1rem;
@@ -23,7 +23,7 @@
         outline: 0;
     }
 
-    //     Tamaños de botones (Estilo Bootstrap)     //
+    //estos son los diferentes tamaños que van a tener los botones
     &-lg { 
         padding: 0.5rem 1rem; 
         font-size: 1.25rem; 
@@ -35,7 +35,7 @@
         border-radius: 0.2rem; 
     }
 
-    //     Tamaños Responsivos (Usando tus breakpoints de HellgarUI)     //
+    //esta parte es para tamaños responsivos
     @each $breakpoint, $size in v.$breakpoints {
         @include m.media-breakpoint-up($breakpoint) {
             $infix: -#{$breakpoint};
@@ -46,8 +46,7 @@
         }
     }
 
-    //     Variantes de color (Sólidos y Outline)     //
-    // Generados automáticamente desde tu mapa de colores en variables
+    //variantes de color para cada button
     @each $name, $color in v.$theme-colors {
         @include m.make-button-variant($name, $color);
     }
